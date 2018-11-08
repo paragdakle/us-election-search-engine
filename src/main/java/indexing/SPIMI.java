@@ -1,5 +1,6 @@
 package indexing;
 
+import indexing.io.RandomAccessFileHandler;
 import indexing.model.PostingFileItem;
 
 import java.io.*;
@@ -10,9 +11,10 @@ public class SPIMI {
 
     private Map<String, LinkedList<PostingFileItem>> index = null;
     private String[] docIds;
-    private int[] maxDocTermFrequency;
     private int maxTermLength = -1;
     private static HashSet<String> stopWords;
+    private final String outFile = "index_uncompressed";
+    private byte indexCounter = 0;
 
     private void createIndex(Map<String, List<String>> termMap, String outFile) {
         docIds = new String[termMap.size() + 1];
@@ -56,11 +58,22 @@ public class SPIMI {
                 counter++;
             }
             catch (OutOfMemoryError e) {
-                System.out.println(e.getMessage());
+                System.out.println("No more space left for the index. Writing out the index and resuming index creation.");
+                writeIndexToFile(outFile);
             }
         }
+        writeIndexToFile(outFile);
+    }
+
+    private void writeIndexToFile(String outFile) {
+        if(index.size() == 0) {
+            return;
+        }
         sortIndex();
-        writeIndexToRandomAccessFile(outFile);
+        RandomAccessFileHandler handler = new RandomAccessFileHandler(outFile + "_" + indexCounter);
+        handler.write(index);
+        indexCounter++;
+        index.clear();
     }
 
     private void writeDocMapAndStats(Map<String, List<String>> tokenMap, String mapAndStatsFile) {
@@ -90,40 +103,5 @@ public class SPIMI {
                 .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (e1, e2) -> e1, LinkedHashMap::new));
-    }
-
-    private void writeIndexToRandomAccessFile(String outFile) {
-        RandomAccessFile randomAccessFile = null;
-        try {
-            maxDocTermFrequency = new int[docIds.length];
-            randomAccessFile = new RandomAccessFile(outFile, "rw");
-            for(String term: index.keySet()) {
-                writeTermAndPostingToRandomAccessFile(randomAccessFile, term, index.get(term));
-            }
-            randomAccessFile.close();
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private void writeTermAndPostingToRandomAccessFile(RandomAccessFile randomAccessFile, String term, LinkedList<PostingFileItem> postingList) {
-        try {
-            randomAccessFile.write(term.getBytes());
-            for(int counter = 0; counter < (maxTermLength - term.length()); counter++) {
-                randomAccessFile.write(0);
-            }
-            randomAccessFile.writeShort(postingList.size());
-            for(PostingFileItem postingFileItem: postingList) {
-                randomAccessFile.writeInt(postingFileItem.getDocId());
-                randomAccessFile.writeInt(postingFileItem.getTermFrequency());
-                if(maxDocTermFrequency[postingFileItem.getDocId()] < postingFileItem.getTermFrequency()) {
-                    maxDocTermFrequency[postingFileItem.getDocId()] = postingFileItem.getTermFrequency();
-                }
-            }
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

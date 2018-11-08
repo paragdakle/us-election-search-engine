@@ -28,6 +28,14 @@ public class PostingFileItem {
         return this.termFrequency;
     }
 
+    public void setDocId(int docId) {
+        this.docId = docId;
+    }
+
+    public void setTermFrequency(int termFrequency) {
+        this.termFrequency = termFrequency;
+    }
+
     public void incrementTermFrequency() {
         this.termFrequency++;
     }
