@@ -1,21 +1,12 @@
 package nlp;
 
 import filter.IFilter;
-import filter.HTMLFilter;
 import indexing.io.FileHandler;
 import indexing.io.IIOHandler;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Tokenizer {
-
-    private final byte TOTAL_TOKENS_INDEX = 0;
-    private final byte UNIQUE_WORDS_INDEX = 1;
-    private final byte ONCE_WORDS_INDEX = 2;
-    private final byte AVG_WORDS_DOC_INDEX = 3;
 
     public static final byte PLAIN_TOKENS = 0;
     public static final byte LEMMA_TOKENS = 1;
@@ -23,22 +14,21 @@ public class Tokenizer {
 
     private Map<String, List<String>> tokenMap;
 
-    private IFilter filter;
-
     private byte mode;
 
     private Lemmatizer lemmatizer;
 
     private Stemmer stemmer;
 
+    private HashSet<String> stopWords;
+
     public Tokenizer() {
         this.tokenMap = new LinkedHashMap<>();
-        filter = new HTMLFilter();
+        stopWords = new HashSet<>(1);
     }
 
     public Tokenizer(byte mode) {
         this.tokenMap = new LinkedHashMap<>();
-        filter = new HTMLFilter();
         this.mode = mode;
         if(this.mode == LEMMA_TOKENS) {
             lemmatizer = new Lemmatizer();
@@ -46,25 +36,34 @@ public class Tokenizer {
         else if(this.mode == STEM_TOKENS) {
             stemmer = new Stemmer();
         }
+        stopWords = new HashSet<>(1);
+    }
+
+    public Tokenizer(byte mode, HashSet<String> stopWords) {
+        this.tokenMap = new LinkedHashMap<>();
+        this.mode = mode;
+        if(this.mode == LEMMA_TOKENS) {
+            lemmatizer = new Lemmatizer();
+        }
+        else if(this.mode == STEM_TOKENS) {
+            stemmer = new Stemmer();
+        }
+        this.stopWords = stopWords;
     }
 
     public Map<String, List<String>> getTokenMap() {
         return this.tokenMap;
     }
 
-    public IFilter getFilter() {
-        return this.filter;
-    }
-
     public void tokenize(String dataPath, IFilter filter, boolean doFormatting) {
-        this.tokenize(new FileHandler(dataPath, filter, doFormatting));
-    }
-
-    public void tokenize(IIOHandler<String, String> handler) {
         if(filter == null) {
             return;
         }
         filter.construct();
+        this.tokenize(new FileHandler(dataPath, filter, doFormatting));
+    }
+
+    public void tokenize(IIOHandler<String, String> handler) {
         Map<String, String> content = handler.read();
         content.forEach((filename, contents) -> {
             String[] contentSplit;
@@ -80,7 +79,7 @@ public class Tokenizer {
             tokenMap.put(filename, new ArrayList<>());
             for (String item : contentSplit) {
                 item = item.trim();
-                if(!item.equals("")) {
+                if(!item.equals("") && !stopWords.contains(item)) {
                     tokenMap.get(filename).add(item);
                 }
             }

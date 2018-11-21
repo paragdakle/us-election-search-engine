@@ -1,5 +1,6 @@
 package indexing.io;
 
+import indexing.model.IndexItem;
 import indexing.model.PostingFileItem;
 
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.Map;
 public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<PostingFileItem>>{
 
     private String filePath;
+
+    private RandomAccessFile file;
 
     public RandomAccessFileHandler(String filePath) {
         this.filePath = filePath;
@@ -24,32 +27,37 @@ public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<Po
         return readIndex();
     }
 
+    public boolean open() {
+        try {
+            file = new RandomAccessFile(filePath, "r");
+            return true;
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean close() {
+        try {
+            file.close();
+            return true;
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
     private Map<String, LinkedList<PostingFileItem>> readIndex() {
         Map<String, LinkedList<PostingFileItem>> content = new HashMap<>();
         try {
-            RandomAccessFile file = new RandomAccessFile(filePath, "r");
+            file = new RandomAccessFile(filePath, "r");
             int byteCounter = 0;
             while(byteCounter <= file.length()) {
-                byte termByte;
-                StringBuilder term = new StringBuilder();
-                while ((termByte = file.readByte()) != ' ') {
-                    term.append(termByte);
-                    byteCounter++;
-                }
-                byteCounter++;
-
-                short df = file.readShort();
-                byteCounter += Short.BYTES;
-
-                LinkedList<PostingFileItem> postingList = new LinkedList<>();
-                for(int counter = 0; counter < df; counter++) {
-                    PostingFileItem postingFileItem = new PostingFileItem();
-                    postingFileItem.setDocId(file.readInt());
-                    postingFileItem.setTermFrequency(file.readInt());
-                    postingList.add(postingFileItem);
-                    byteCounter += (Integer.BYTES * 2);
-                }
-                content.put(term.toString(), postingList);
+                IndexItem indexItem = readOneRecord(file);
+                content.put(indexItem.getTerm(), indexItem.getPostingFileItems());
+                byteCounter += indexItem.getSize();
             }
             file.close();
         }
@@ -59,24 +67,54 @@ public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<Po
         return content;
     }
 
-    public boolean write(Map<String, LinkedList<PostingFileItem>> index) {
-        if(index != null && index.size() > 0) {
-            index.forEach(this::write);
-        }
-        return false;
-    }
-
-    @Override
-    public boolean write(String key, LinkedList<PostingFileItem> value) {
-        RandomAccessFile randomAccessFile;
+    public IndexItem readOneRecord() {
         try {
-            randomAccessFile = new RandomAccessFile(filePath, "rw");
-            writeTermAndPostingToRandomAccessFile(randomAccessFile, key, value);
-            randomAccessFile.close();
+            if (file != null) {
+                return readOneRecord(file);
+            }
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        return new IndexItem();
+    }
+
+    private IndexItem readOneRecord(RandomAccessFile file) throws IOException {
+        if(file.getFilePointer() < file.length() - Short.BYTES) {
+            byte termByte;
+            StringBuilder term = new StringBuilder();
+            while ((termByte = file.readByte()) != ' ') {
+                term.append((char)termByte);
+            }
+
+            short df = file.readShort();
+
+            IndexItem indexItem = new IndexItem(term.toString(), df);
+
+            for (int counter = 0; counter < df; counter++) {
+                indexItem.addPostingEntry(file.readInt(), file.readInt());
+            }
+            return indexItem;
+        }
+        return null;
+    }
+
+    public void write(Map<String, LinkedList<PostingFileItem>> index) {
+        try {
+            file = new RandomAccessFile(filePath, "rw");
+            if (index != null && index.size() > 0) {
+                index.forEach(this::write);
+            }
+            file.close();
+        }
+        catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean write(String key, LinkedList<PostingFileItem> value) {
+        writeTermAndPostingToRandomAccessFile(file, key, value);
         return false;
     }
 

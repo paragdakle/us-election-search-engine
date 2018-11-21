@@ -20,6 +20,11 @@ public class PostingFileItem {
         this.termFrequency = 1;
     }
 
+    PostingFileItem(int docId, int termFrequency) {
+        this.docId = docId;
+        this.termFrequency = termFrequency;
+    }
+
     public Integer getDocId() {
         return this.docId;
     }
