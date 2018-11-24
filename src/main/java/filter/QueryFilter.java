@@ -1,16 +1,15 @@
 package filter;
 
-
-import utils.Constants;
-
 import java.util.HashMap;
 
+import static utils.Constants.*;
 
-public class HTMLFilter implements IFilter, Constants {
+
+public class QueryFilter implements IFilter {
 
     private HashMap<String, String> filterRegexMap;
 
-    public HTMLFilter() {
+    public QueryFilter() {
         this.filterRegexMap = new HashMap<>();
     }
 
@@ -28,7 +27,6 @@ public class HTMLFilter implements IFilter, Constants {
 
     @Override
     public void construct() {
-        this.addRegex(HTML_TAG_REGEX, "");
         this.addRegex(POSSESSIVE_REGEX, "");
         this.addRegex(SPECIAL_CHARACTER_REGEX, " ");
         this.addRegex(NUMBER_REGEX, " ");
