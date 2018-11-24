@@ -34,6 +34,7 @@ public class FileHandler implements IIOHandler<String, String> {
         this.doFormatInput = doFormatInput;
     }
 
+    @Override
     public Map<String, String> read() {
         if(filePath.equals("")) {
             return null;
@@ -57,26 +58,9 @@ public class FileHandler implements IIOHandler<String, String> {
         try {
             File dir = new File(filePath);
             for(File file: dir.listFiles()) {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-
-                String line;
-                StringBuilder builder = new StringBuilder();
-                while ((line = reader.readLine()) != null) {
-                    if(doFormatInput) {
-                        line = Formatter.formatInput(line);
-                    }
-                    if (filter == null) {
-                        builder.append(line.trim());
-                    } else {
-                        line = filter.filter(line.trim());
-                        if(!line.equals("")) {
-                            builder.append(filter.filter(line.trim()));
-                        }
-                    }
-                    builder.append(" ");
+                if(file.isFile()) {
+                    content.put(file.getName(), readFileContents(file));
                 }
-                reader.close();
-                content.put(file.getName(), builder.toString());
             }
         }
         catch (IOException e) {
@@ -89,31 +73,36 @@ public class FileHandler implements IIOHandler<String, String> {
         Map<String, String> content = new HashMap<>();
         try {
             File file = new File(filePath);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-
-            String line;
-            StringBuilder builder = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                if(doFormatInput) {
-                    line = Formatter.formatInput(line);
-                }
-                if (filter == null) {
-                    builder.append(line.trim());
-                } else {
-                    line = filter.filter(line.trim());
-                    if(!line.equals("")) {
-                        builder.append(filter.filter(line.trim()));
-                    }
-                }
-                builder.append(" ");
-            }
-            reader.close();
-            content.put(file.getName(), builder.toString());
+            content.put(file.getName(), readFileContents(file));
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         return content;
     }
+
+    public String readFileContents(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+
+        String line;
+        StringBuilder builder = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            if(doFormatInput) {
+                line = Formatter.formatInput(line);
+            }
+            if (filter == null) {
+                builder.append(line.trim());
+            } else {
+                line = filter.filter(line.trim());
+                if(!line.equals("")) {
+                    builder.append(filter.filter(line.trim()));
+                }
+            }
+            builder.append(" ");
+        }
+        reader.close();
+        return builder.toString();
+    }
+
 
 }

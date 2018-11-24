@@ -56,8 +56,10 @@ public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<Po
             int byteCounter = 0;
             while(byteCounter <= file.length()) {
                 IndexItem indexItem = readOneRecord(file);
-                content.put(indexItem.getTerm(), indexItem.getPostingFileItems());
-                byteCounter += indexItem.getSize();
+                if(indexItem != null) {
+                    content.put(indexItem.getTerm(), indexItem.getPostingFileItems());
+                    byteCounter += indexItem.getSize();
+                }
             }
             file.close();
         }
@@ -65,6 +67,26 @@ public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<Po
             e.printStackTrace();
         }
         return content;
+    }
+
+    public Map<String, Short> readIndexHeaders() {
+        Map<String, Short> contentHeaders = new HashMap<>();
+        try {
+            file = new RandomAccessFile(filePath, "r");
+            int byteCounter = 0;
+            while(byteCounter < file.length()) {
+                IndexItem indexItem = readOneRecordHeader(file);
+                if(indexItem != null) {
+                    contentHeaders.put(indexItem.getTerm(), indexItem.getDf());
+                    byteCounter += indexItem.getSize();
+                }
+            }
+            file.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return contentHeaders;
     }
 
     public IndexItem readOneRecord() {
@@ -91,9 +113,32 @@ public class RandomAccessFileHandler implements IIOHandler<String, LinkedList<Po
 
             IndexItem indexItem = new IndexItem(term.toString(), df);
 
+            //1 byte for space which is used as a separator after term in index file
+            indexItem.incrementSize(1);
+
             for (int counter = 0; counter < df; counter++) {
                 indexItem.addPostingEntry(file.readInt(), file.readInt());
             }
+            return indexItem;
+        }
+        return null;
+    }
+
+    private IndexItem readOneRecordHeader(RandomAccessFile file) throws IOException {
+        if(file.getFilePointer() < file.length()) {
+            byte termByte;
+            StringBuilder term = new StringBuilder();
+            while ((termByte = file.readByte()) != ' ') {
+                term.append((char)termByte);
+            }
+
+            short df = file.readShort();
+
+            IndexItem indexItem = new IndexItem(term.toString(), df);
+            indexItem.incrementSize(1);
+            int delta = Integer.BYTES * 2 * df;
+            indexItem.incrementSize(delta);
+            file.seek(file.getFilePointer() + delta);
             return indexItem;
         }
         return null;
