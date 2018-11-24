@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Map;
 
 public class Utils {
 
@@ -29,5 +30,15 @@ public class Utils {
             System.out.println(e.getMessage());
         }
         return stopWords;
+    }
+
+    public static double computeDotProduct(Map<String, Double> vector1, Map<String, Double> vector2) {
+        double dotProduct = 0.0;
+        for(String key: vector1.keySet()) {
+            if(vector2.containsKey(key)) {
+                dotProduct = dotProduct + (vector1.get(key) * vector2.get(key));
+            }
+        }
+        return dotProduct;
     }
 }

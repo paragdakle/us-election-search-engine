@@ -13,4 +13,8 @@ public interface Constants {
     String NUMBER_REGEX = "[0-9]+";
 
     String MULTISPACE_REGEX = "[ ]+";
+
+    String CORPUS_DIR_PATH = "data/all/";
+
+    int MAX_BLOCK_FILES_COUNT = 1000;
 }

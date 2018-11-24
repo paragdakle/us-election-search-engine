@@ -65,24 +65,26 @@ public class Tokenizer {
 
     public void tokenize(IIOHandler<String, String> handler) {
         Map<String, String> content = handler.read();
-        content.forEach((filename, contents) -> {
-            String[] contentSplit;
-            if(mode == LEMMA_TOKENS) {
-                contentSplit = lemmatizer.lemmatize(contents);
+        content.forEach(this::tokenize);
+    }
+
+    public void tokenize(String filename, String text) {
+        String[] contentSplit;
+        if(mode == LEMMA_TOKENS) {
+            contentSplit = lemmatizer.lemmatize(text);
+        }
+        else if(mode == STEM_TOKENS) {
+            contentSplit = stemmer.stem(text);
+        }
+        else {
+            contentSplit = text.split(" ");
+        }
+        tokenMap.put(filename, new ArrayList<>());
+        for (String item : contentSplit) {
+            item = item.trim();
+            if(!item.equals("") && !stopWords.contains(item)) {
+                tokenMap.get(filename).add(item);
             }
-            else if(mode == STEM_TOKENS) {
-                contentSplit = stemmer.stem(contents);
-            }
-            else {
-                contentSplit = contents.split(" ");
-            }
-            tokenMap.put(filename, new ArrayList<>());
-            for (String item : contentSplit) {
-                item = item.trim();
-                if(!item.equals("") && !stopWords.contains(item)) {
-                    tokenMap.get(filename).add(item);
-                }
-            }
-        });
+        }
     }
 }

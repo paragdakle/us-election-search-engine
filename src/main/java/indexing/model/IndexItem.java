@@ -51,4 +51,8 @@ public class IndexItem {
         postingFileItems.add(new PostingFileItem(docId, frequency));
         size += (Integer.BYTES * 2);
     }
+
+    public void incrementSize(int delta) {
+        this.size += delta;
+    }
 }
