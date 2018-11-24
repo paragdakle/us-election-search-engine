@@ -1,11 +1,15 @@
 package indexing;
 
+import indexing.io.RandomAccessFileHandler;
 import nlp.Tokenizer;
 import org.junit.Test;
+import utils.Constants;
 import utils.Utils;
 
 import java.io.File;
+import java.util.Map;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class IndexTest {
@@ -15,7 +19,7 @@ public class IndexTest {
     @Test
     public void createIndexTest() {
         Utils.deleteFile(outFile);
-        createIndex("data/data1");
+        createIndex(Constants.CORPUS_DIR_PATH);
         File file = new File(outFile);
         assertTrue(file.exists());
     }
@@ -37,5 +41,11 @@ public class IndexTest {
         spimi.createIndex(tokenizer.getTokenMap(), outFile);
     }
 
-
+    @Test
+    public void loadIndexHeadersTest() {
+        RandomAccessFileHandler randomAccessFileHandler = new RandomAccessFileHandler("output/index_uncompressed");
+        Map<String, Short> indexHeaders = randomAccessFileHandler.readIndexHeaders();
+        assertNotNull(indexHeaders);
+        assertTrue(indexHeaders.size() > 0);
+    }
 }
