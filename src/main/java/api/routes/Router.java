@@ -1,21 +1,25 @@
 package api.routes;
 
 import api.controller.QueryController;
-import core.indexing.io.RandomAccessFileHandler;
+import core.io.FileHandler;
+import core.io.RandomAccessFileHandler;
 import core.utils.Utils;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 import static spark.Spark.*;
 
 public class Router {
 
     public static Map<String, Short> indexHeaders = null;
+
+    public static Map<String, Double> pageRank = null;
+
+    public static Map<String, Double> hubScores = null;
+
+    public static Map<String, Double> authorityScores = null;
 
     public static HashSet<String> stopwords = null;
 
@@ -46,5 +50,46 @@ public class Router {
     private static void loadIndexHeaders() {
         RandomAccessFileHandler randomAccessFileHandler = new RandomAccessFileHandler("output/index_uncompressed");
         indexHeaders = randomAccessFileHandler.readIndexHeaders();
+    }
+
+    private static void loadPageRankScores() {
+        FileHandler fileHandler = new FileHandler("output/pagerank.txt");
+        List<String> content = fileHandler.readFileContent();
+        if(content != null && content.size() > 0) {
+            if (pageRank == null) {
+                pageRank = new HashMap<>();
+            }
+            content.forEach((item) -> {
+                String[] contentSplit = item.split(" ");
+                if (contentSplit.length == 2) {
+                    pageRank.put(contentSplit[0], Double.parseDouble(contentSplit[1]));
+                }
+            });
+        }
+    }
+
+    private static void loadHITSScores() {
+        FileHandler fileHandler = new FileHandler("output/hits.txt");
+        List<String> content = fileHandler.readFileContent();
+        if(content != null && content.size() > 0) {
+            if (authorityScores == null) {
+                authorityScores = new HashMap<>();
+            }
+            if (hubScores == null) {
+                hubScores = new HashMap<>();
+            }
+            content.forEach((item) -> {
+                String[] contentSplit = item.split(" ");
+                if (contentSplit.length == 3) {
+                    double hubScore = Double.parseDouble(contentSplit[1]);
+                    double authScore = Double.parseDouble(contentSplit[2]);
+                    if (hubScore == 0.0) {
+                        authorityScores.put(contentSplit[0], authScore);
+                    } else if (authScore == 0.0) {
+                        authorityScores.put(contentSplit[0], hubScore);
+                    }
+                }
+            });
+        }
     }
 }

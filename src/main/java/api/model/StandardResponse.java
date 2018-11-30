@@ -1,5 +1,6 @@
 package api.model;
 
+import api.Utils.Constants;
 import com.google.gson.JsonElement;
 
 public class StandardResponse {
@@ -22,5 +23,17 @@ public class StandardResponse {
     public StandardResponse(String status, JsonElement jsonElement) {
         this.status = status;
         this.data = jsonElement;
+    }
+
+    public static StandardResponse getSuccessResponse() {
+        return new StandardResponse(Constants.SUCCESS_STATUS);
+    }
+
+    public static StandardResponse getFailureResponse(String message) {
+        return new StandardResponse(Constants.FAILURE_STATUS, message);
+    }
+
+    public static StandardResponse getSuccessResponse(JsonElement jsonElement) {
+        return new StandardResponse(Constants.SUCCESS_STATUS, jsonElement);
     }
 }
