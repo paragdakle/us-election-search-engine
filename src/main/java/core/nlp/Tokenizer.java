@@ -1,8 +1,8 @@
 package core.nlp;
 
 import core.filter.IFilter;
-import core.indexing.io.FileHandler;
-import core.indexing.io.IIOHandler;
+import core.io.FileHandler;
+import core.io.IIOHandler;
 
 import java.util.*;
 
