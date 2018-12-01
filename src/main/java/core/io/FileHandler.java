@@ -74,7 +74,7 @@ public class FileHandler implements IIOHandler<String, String> {
         Map<String, String> content = new HashMap<>();
         try {
             File file = new File(filePath);
-            content.put(file.getName(), readFileContents(file));
+            content.put(file.getName().replace(".txt", ""), readFileContents(file));
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -107,21 +107,27 @@ public class FileHandler implements IIOHandler<String, String> {
         if(!filePath.isEmpty()) {
             File file = new File(filePath);
             if(file.isFile()) {
-                try {
-                    content = new ArrayList<>();
-                    FileReader reader = new FileReader(file);
-                    BufferedReader bufferedReader = new BufferedReader(reader);
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        content.add(line);
-                    }
-                    bufferedReader.close();
-                    reader.close();
-                }
-                catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
+                content = readFileContent(file);
             }
+        }
+        return content;
+    }
+
+    public List<String> readFileContent(File file) {
+        List<String> content = null;
+        try {
+            content = new ArrayList<>();
+            FileReader reader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                content.add(line);
+            }
+            bufferedReader.close();
+            reader.close();
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         return content;
     }

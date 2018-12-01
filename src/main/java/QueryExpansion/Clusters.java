@@ -1,5 +1,8 @@
+package QueryExpansion;
+
 import java.io.*;
 import java.util.*;
+
 class Pair
 {
 	String s1;

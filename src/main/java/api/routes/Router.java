@@ -26,6 +26,8 @@ public class Router {
     public static void main(String[] args) {
 
         loadIndexHeaders();
+        loadPageRankScores();
+        loadPageRankScores();
         stopwords = Utils.loadStopwords("src/main/resources/stopwords.txt");
 
         port(8080);

@@ -1,8 +1,12 @@
-import java.util.*;
-import java.io.*;
+package QueryExpansion;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+
 class QueryExpansion
 {
-	public static void build_Indices(String path_to_collection,StanfordLemmatizer s) throws Exception
+	public static void build_Indices(String path_to_collection, StanfordLemmatizer s) throws Exception
 	{
 		HashMap<String,String[]> collection_items = Parser.return_collection(path_to_collection,s);
 		String[] vocab = Clusters.build_vocab(collection_items);

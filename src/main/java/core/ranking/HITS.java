@@ -70,14 +70,14 @@ public class HITS {
             for(String key: hubScores.keySet()) {
                 Double[] hubWeights = hubScores.get(key);
                 hubWeights[1] = hubWeights[1] / totalHubScore;
-                if(Math.abs(hubWeights[0] - hubWeights[1]) > 0.00001) {
+                if(Math.abs(hubWeights[0] - hubWeights[1]) > 0.0001) {
                     hubWeights[0] = hubWeights[1];
                     hubScores.put(key, hubWeights);
                     doBreak = false;
                 }
                 Double[] authorityWeights = authorityScores.get(key);
                 authorityWeights[1] = authorityWeights[1] / totalAuthorityScore;
-                if(Math.abs(authorityWeights[0] - authorityWeights[1]) > 0.00001) {
+                if(Math.abs(authorityWeights[0] - authorityWeights[1]) > 0.0001) {
                     authorityWeights[0] = authorityWeights[1];
                     authorityScores.put(key, authorityWeights);
                     doBreak = false;
