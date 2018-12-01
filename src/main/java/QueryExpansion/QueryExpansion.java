@@ -1,30 +1,25 @@
-package QueryExpansion;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
-
+import java.util.*;
+import java.io.*;
 class QueryExpansion
 {
-	public static void build_Indices(String path_to_collection, StanfordLemmatizer s) throws Exception
+	public static void build_Indices(String path_to_collection,String[] v) throws Exception
 	{
-		HashMap<String,String[]> collection_items = Parser.return_collection(path_to_collection,s);
+		HashMap<String,String[]> collection_items = Parser.return_collection(path_to_collection);
 		String[] vocab = Clusters.build_vocab(collection_items);
-		Clusters.build_Association(collection_items,vocab);
-		Clusters.build_Metric(collection_items,vocab);
-		Clusters.build_Scalar(collection_items,vocab);
+		Clusters.build_Association(collection_items,vocab,v);
+		//Clusters.build_Metric(collection_items,vocab);
+		//Clusters.build_Scalar(collection_items,vocab);
 	}
 	public static void main(String args[]) throws Exception
 	{
-		StanfordLemmatizer s = new StanfordLemmatizer();
 		String path_to_collection = args[0]; //path to seed list
 		int method = Integer.parseInt(args[1]);
-		build_Indices(path_to_collection,s);
 		String query;
 		Scanner sc=new Scanner(System.in);
 		query=sc.nextLine();
-		String[] query_tokens = Parser.return_tokens(query,s);
+		String[] query_tokens = Parser.return_tokens(query);
 		HashSet<String> v = new HashSet<String>();
+		build_Indices(path_to_collection,query_tokens);
 		String filename = "scalar.txt";
 		if (method==1) //association
 			filename = "association.txt";
