@@ -1,6 +1,12 @@
-import java.util.*;
-import java.io.*;
-import java.util.regex.PatternSyntaxException;
+package QueryExpansion;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
 class Parser
 {
 	public static String[] return_best(String file,String token) throws Exception
@@ -24,7 +30,7 @@ class Parser
 			}
 			if (tokens[1].equals(token))
 			{
-				ccorr = Double.parseDouble(tokens[2]);
+				corr = Double.parseDouble(tokens[2]);
 				if(max_corr_1<corr)
 				{
 					max_corr_1=corr;
@@ -40,7 +46,7 @@ class Parser
 		File[] filesList=new File(path).listFiles();
 		return filesList;
 	}
-	public static String[] return_tokens(String text,StanfordLemmatizer s) throws Exception
+	public static String[] return_tokens(String text, StanfordLemmatizer s) throws Exception
 	{
 		text = text.replaceAll("\\<.*?>", " ");
 		text = text.replaceAll("\\d"," ");

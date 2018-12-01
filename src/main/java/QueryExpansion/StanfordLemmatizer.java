@@ -1,6 +1,5 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
+package QueryExpansion;
+
 import edu.stanford.nlp.ling.CoreAnnotations.LemmaAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
@@ -8,6 +7,11 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
+
 public class StanfordLemmatizer
 {
 	protected StanfordCoreNLP pipeline;

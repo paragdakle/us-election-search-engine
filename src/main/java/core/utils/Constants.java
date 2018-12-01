@@ -24,5 +24,7 @@ public interface Constants {
 
     String CORPUS_DIR_PATH = "data/project/";
 
-    int MAX_BLOCK_FILES_COUNT = 1000;
+    String TOKENIZED_CORPUS_DIR_PATH = "output/corpus/";
+
+    int MAX_BLOCK_FILES_COUNT = 3900;
 }

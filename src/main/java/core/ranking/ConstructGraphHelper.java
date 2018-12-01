@@ -43,5 +43,12 @@ public class ConstructGraphHelper {
         PageRank pageRank = new PageRank(constructGraphHelper.getGraph());
         pageRank.computeGraphPageRank();
         pageRank.writeResults("output/pagerank.txt");
+
+        constructGraphHelper = new ConstructGraphHelper("src/main/resources/links.txt");
+        constructGraphHelper.constructGraph();
+        HITS hits = new HITS(constructGraphHelper.getGraph());
+        hits.computeHITSScores();
+        hits.writeResults("output/hits.txt");
+
     }
 }

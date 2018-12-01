@@ -1,16 +1,12 @@
 package core.query.handler;
 
 import api.routes.Router;
-import core.filter.HTMLFilter;
-import core.filter.IFilter;
 import core.io.FileHandler;
-import core.nlp.Tokenizer;
 import core.query.model.Document;
 import core.utils.Constants;
-import core.utils.Utils;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.List;
 
 public class DocumentHandler {
 
@@ -44,13 +40,8 @@ public class DocumentHandler {
                 documents = new Document[fileCount];
                 for(File file1: file.listFiles()) {
                     if(counter < fileCount) {
-                        try {
-                            if (file1.isFile()) {
-                                documents[counter] = toDocument(fileHandler.readFileContents(file1), counter, file1.getName());
-                            }
-                        } catch (IOException e) {
-                            System.out.println(e.getMessage());
-                            documents[counter] = null;
+                        if (file1.isFile()) {
+                            documents[counter] = toDocument(fileHandler.readFileContent(file1), counter, file1.getName());
                         }
                         counter++;
                     }
@@ -58,28 +49,18 @@ public class DocumentHandler {
             }
             else {
                 documents = new Document[1];
-                try {
-                    documents[0] = toDocument(fileHandler.readFileContents(file), 0, file.getName());
-                }
-                catch (IOException e) {
-                    System.out.println(e.getMessage());
-                    documents[0] = null;
-                }
+                documents[0] = toDocument(fileHandler.readFileContent(file), 0, file.getName());
             }
         }
     }
 
-    private Document toDocument(String fileContent, int id, String name) {
-        Tokenizer tokenizer = new Tokenizer(Tokenizer.LEMMA_TOKENS, Utils.loadStopwords("src/main/resources/stopwords.txt"));
-        IFilter filter = new HTMLFilter();
-        filter.construct();
-        fileContent = filter.filter(fileContent);
-        tokenizer.tokenize(name, fileContent);
+    private Document toDocument(List<String> fileTokens, int id, String name) {
+        if(fileTokens == null) {
+            return null;
+        }
         Document document = new Document(id);
         document.setName(name);
-        tokenizer.getTokenMap()
-                .get(name)
-                .forEach(document::addTerm);
+        fileTokens.forEach(document::addTerm);
         if(Router.pageRank != null && Router.pageRank.containsKey(name)) {
             document.setPageRank(Router.pageRank.get(name));
         }
