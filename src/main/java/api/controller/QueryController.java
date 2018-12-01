@@ -17,6 +17,22 @@ public class QueryController implements IController {
     @Override
     public String handleRequest(Request request) {
         String queryString = request.queryParams("query");
+        if(queryString == null) {
+            return toGson(StandardResponse.getFailureResponse(Constants.INVALID_PARAMETERS));
+        }
+        String rModelType = request.queryParams("relevance");
+        if(rModelType == null) {
+            return toGson(StandardResponse.getFailureResponse(Constants.INVALID_PARAMETERS));
+        }
+        String cAlgorithmType = request.queryParams("clustering");
+        if(cAlgorithmType == null) {
+            return toGson(StandardResponse.getFailureResponse(Constants.INVALID_PARAMETERS));
+        }
+        String qeAlgorithmType = request.queryParams("qe");
+        if(qeAlgorithmType == null) {
+            return toGson(StandardResponse.getFailureResponse(Constants.INVALID_PARAMETERS));
+        }
+
         QueryHandler queryHandler = new QueryHandler(queryString);
         queryHandler.populateQueryObject();
         queryHandler.populateQueryVector(Router.indexHeaders);
@@ -24,10 +40,10 @@ public class QueryController implements IController {
         DocumentHandler documentHandler = new DocumentHandler(core.utils.Constants.CORPUS_DIR_PATH);
         documentHandler.loadDocuments();
 
-        Map<Integer, Double> results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY,10);
+        Map<String, Double> results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY,10);
         JsonArray jsonElement = new JsonArray();
         int counter = 1;
-        for(Integer key: results.keySet()) {
+        for(String key: results.keySet()) {
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("rank", counter++);
             jsonObject.addProperty("id", key);
@@ -35,6 +51,10 @@ public class QueryController implements IController {
             jsonElement.add(jsonObject);
         }
 
-        return new Gson().toJson(new StandardResponse(Constants.SUCCESS_STATUS, jsonElement));
+        return toGson(StandardResponse.getSuccessResponse(jsonElement));
+    }
+
+    private String toGson(StandardResponse standardResponse) {
+        return new Gson().toJson(standardResponse);
     }
 }

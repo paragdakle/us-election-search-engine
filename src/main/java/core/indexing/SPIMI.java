@@ -1,6 +1,6 @@
 package core.indexing;
 
-import core.indexing.io.RandomAccessFileHandler;
+import core.io.RandomAccessFileHandler;
 import core.indexing.model.IndexItem;
 import core.indexing.model.PostingFileItem;
 import core.utils.Utils;

@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Node {
 
+    public final boolean TYPE_HUB = true;
+    public final boolean TYPE_AUTHORITY = false;
+
     private String name;
 
     private List<Node> sourceNodes;
@@ -12,6 +15,8 @@ public class Node {
     private List<Node> targetNodes;
 
     private double weight = 0.0;
+
+    private boolean type = false;
 
     public Node(String name) {
         this.name = name;
@@ -27,6 +32,14 @@ public class Node {
 
     public List<Node> getTargetNodes() {
         return targetNodes;
+    }
+
+    public boolean getType() {
+        return type;
+    }
+
+    public void setType(boolean type) {
+        this.type = type;
     }
 
     public void addSourceNode(Node node) {

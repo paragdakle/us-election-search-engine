@@ -1,4 +1,4 @@
-package core.indexing.io;
+package core.io;
 
 import core.indexing.model.IndexItem;
 import core.indexing.model.PostingFileItem;

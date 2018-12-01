@@ -5,11 +5,20 @@ import java.util.Map;
 
 public class Document {
 
+    public final boolean TYPE_HUB = true;
+    public final boolean TYPE_AUTHORITY = false;
+
     private int id;
 
     private String name;
 
     private Map<String, Short> termMap;
+
+    private boolean type;
+
+    private double pageRank;
+
+    private double weight;
 
     private short maxTF;
 
@@ -20,6 +29,7 @@ public class Document {
     public Document(int id) {
         this.id = id;
         termMap = new HashMap<>(1);
+        type = TYPE_AUTHORITY;
     }
 
     public void addTerm(String term) {
@@ -65,6 +75,30 @@ public class Document {
 
     public Map<String, Double> getVector() {
         return vector;
+    }
+
+    public boolean getType() {
+        return type;
+    }
+
+    public void setType(boolean type) {
+        this.type = type;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getPageRank() {
+        return pageRank;
+    }
+
+    public void setPageRank(double pageRank) {
+        this.pageRank = pageRank;
     }
 
     public void generateVector() {

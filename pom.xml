@@ -35,6 +35,14 @@
             <version>1.7.21</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/edu.stanford.core.nlp/stanford-corenlp -->
         <dependency>
             <groupId>edu.stanford.nlp</groupId>

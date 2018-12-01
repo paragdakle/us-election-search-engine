@@ -1,4 +1,4 @@
-package core.indexing.io;
+package core.io;
 
 import java.util.Map;
 

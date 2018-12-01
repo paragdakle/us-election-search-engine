@@ -1,5 +1,6 @@
 package core.query.handler;
 
+import api.routes.Router;
 import core.filter.IFilter;
 import core.filter.QueryFilter;
 import core.nlp.Tokenizer;
@@ -10,11 +11,12 @@ import core.utils.Utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class QueryHandler {
 
     public static final byte SIMPLE_COSINE_SIMILARITY = 0;
+    public static final byte CS_PAGERANK = 1;
+    public static final byte CS_HITS = 2;
 
     private String queryStr;
 
@@ -71,37 +73,51 @@ public class QueryHandler {
         }
     }
 
-    public Map<Integer, Double> getTopKDocuments(Document[] documents, byte method, int K) {
+    public Map<String, Double> getTopKDocuments(Document[] documents, byte method, int K) {
         if(K > documents.length) {
             K = documents.length;
         }
         if(method == SIMPLE_COSINE_SIMILARITY) {
-            return getTopKDocumentsWithCosineSim(documents, K);
+            return getTopKDocumentsWithCosineSim(documents, K, method);
+        }
+        if(method == CS_PAGERANK) {
+            return getTopKDocumentsWithCosineSim(documents, K, method);
         }
         return null;
     }
 
-    private Map<Integer, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K) {
-        Map<Integer, Double> queryDocumentCosineScores = new LinkedHashMap<>();
+    private Map<String, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K, byte method) {
+        Map<String, Double> queryDocumentCosineScores = new LinkedHashMap<>();
         for (Document document : documents) {
-            queryDocumentCosineScores.put(document.getId(), Utils.computeDotProduct(query.getVector(), document.getVector()));
+            double score = Utils.computeDotProduct(query.getVector(), document.getVector());
+            if(score > 0) {
+                queryDocumentCosineScores.put(document.getName(), score);
+            }
         }
-        queryDocumentCosineScores = sortDocumentsByCosineScore(queryDocumentCosineScores);
-        Map<Integer, Double> result = new LinkedHashMap<>();
-        for(Integer key: queryDocumentCosineScores.keySet()) {
-            result.put(key, queryDocumentCosineScores.get(key));
+        queryDocumentCosineScores = new Utils<String>().sortMap(queryDocumentCosineScores);
+        Map<String, Double> result = new LinkedHashMap<>();
+        for(String key: queryDocumentCosineScores.keySet()) {
+            if(method == CS_PAGERANK && Router.pageRank != null) {
+                result.put(key, Router.pageRank.get(key));
+            }
+            else if(method == CS_HITS) {
+                if(Router.authorityScores != null && Router.authorityScores.containsKey(key)) {
+                    result.put(key, Router.authorityScores.get(key));
+                }
+                else if(Router.hubScores != null && Router.hubScores.containsKey(key)) {
+                    result.put(key, Router.hubScores.get(key));
+                }
+                else {
+                    result.put(key, 0.0);
+                }
+            }
+            else {
+                result.put(key, queryDocumentCosineScores.get(key));
+            }
             if (--K == 0) {
                 break;
             }
         }
         return result;
-    }
-
-    private Map<Integer, Double> sortDocumentsByCosineScore(Map<Integer, Double> documents) {
-        return documents.entrySet()
-                .stream()
-                .sorted(Map.Entry.<Integer, Double>comparingByValue().reversed())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (e1, e2) -> e1, LinkedHashMap::new));
     }
 }

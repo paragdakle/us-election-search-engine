@@ -1,7 +1,6 @@
 package core.ranking;
 
 import core.ranking.model.Graph;
-import core.ranking.model.Node;
 import org.junit.Test;
 
 import java.io.File;
@@ -11,11 +10,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class PageRankTest {
+public class HITSTest {
 
     @Test
     public void createGraphTest() {
-
         Graph graph = getDefaultGraph();
 
         assertNotNull(graph.getNodes());
@@ -27,30 +25,28 @@ public class PageRankTest {
     }
 
     @Test
-    public void computePageRankTest() {
-        Graph graph = getDefaultGraph3();
-        PageRank pageRank = new PageRank(graph);
-        pageRank.computeGraphPageRank();
+    public void computeHITSTest() {
+        Graph graph = getDefaultGraph4();
+        HITS hits = new HITS(graph);
+        hits.computeHITSScores();
 
-        graph = pageRank.getWebGraph();
+        Map<String, Double[]> hubScores = hits.getHubScores();
+        Map<String, Double[]> authorityScores = hits.getAuthorityScores();
 
-        Map<String, Node> nodes = graph.getNodes();
-        double sum = 0.0;
-        for (String key :
-                nodes.keySet()) {
-            Node node = nodes.get(key);
-            sum += node.getWeight();
+        for(String key: hubScores.keySet()) {
+            System.out.println(key + " " + hubScores.get(key)[0] + " " + authorityScores.get(key)[0]);
         }
-        assertEquals(1.0, sum / nodes.size(), 0.01);
+        assertEquals(10, hubScores.size());
+        assertEquals(10, authorityScores.size());
     }
 
     @Test
     public void storeGraphTest() {
-        Graph graph = getDefaultGraph3();
-        PageRank pageRank = new PageRank(graph);
-        pageRank.computeGraphPageRank();
-        String filePath = "output/pagerank.txt";
-        pageRank.writeResults(filePath);
+        Graph graph = getDefaultGraph4();
+        HITS hits = new HITS(graph);
+        hits.computeHITSScores();
+        String filePath = "output/hits.txt";
+        hits.writeResults(filePath);
         File file = new File(filePath);
         assertTrue(file.exists());
     }
@@ -177,6 +173,19 @@ public class PageRankTest {
     private Graph getDefaultGraph3() {
         Graph graph = new Graph();
 
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+
+        graph.addEdge("a", "c");
+        graph.addEdge("b", "c");
+
+        return graph;
+    }
+
+    private Graph getDefaultGraph4() {
+        Graph graph = new Graph();
+
         graph.addNode("D1");
         graph.addNode("D2");
         graph.addNode("D3");
@@ -225,5 +234,4 @@ public class PageRankTest {
 
         return graph;
     }
-
 }

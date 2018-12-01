@@ -1,6 +1,6 @@
 package core.query;
 
-import core.indexing.io.RandomAccessFileHandler;
+import core.io.RandomAccessFileHandler;
 import core.query.handler.DocumentHandler;
 import core.query.handler.QueryHandler;
 import org.junit.Test;
@@ -56,7 +56,7 @@ public class QueryHandlerTest {
         documentHandler.loadDocuments();
 
         int k = 10;
-        Map<Integer, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY, k);
+        Map<String, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY, k);
         assertNotNull(cosineScores);
         assertEquals(k, cosineScores.size());
         System.out.println(System.currentTimeMillis());
