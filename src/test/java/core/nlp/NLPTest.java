@@ -1,6 +1,8 @@
 package core.nlp;
 
-import core.indexing.io.FileHandler;
+import core.filter.HTMLFilter;
+import core.io.FileHandler;
+import core.utils.Utils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -47,6 +49,17 @@ public class NLPTest {
         Tokenizer tokenizer = new Tokenizer(Tokenizer.LEMMA_TOKENS);
         FileHandler handler = new FileHandler("src/test/resources/simple.txt");
         tokenizer.tokenize(handler);
+        tokenizer.getTokenMap().forEach((key, value) -> {
+            for(byte counter = 0; counter < value.size(); counter++) {
+                assertEquals(value.get(counter), actualLemmas[counter]);
+            }
+        });
+    }
+
+    @Test
+    public void lemmaHTMLTokenizerTest() {
+        Tokenizer tokenizer = new Tokenizer(Tokenizer.LEMMA_TOKENS, Utils.loadStopwords("src/main/resources/stopwords.txt"));
+        tokenizer.tokenize("src/test/resources/seed1.txt", new HTMLFilter(), true);
         tokenizer.getTokenMap().forEach((key, value) -> {
             for(byte counter = 0; counter < value.size(); counter++) {
                 assertEquals(value.get(counter), actualLemmas[counter]);

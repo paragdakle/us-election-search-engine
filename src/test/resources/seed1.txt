@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Elections/Democratic Party Attorney General primaries, 2018 - Ballotpedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Elections/Democratic_Party_Attorney_General_primaries,_2018","wgTitle":"Elections/Democratic Party Attorney General primaries, 2018","wgCurRevisionId":0,"wgRevisionId":0,"wgArticleId":0,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Elections/Democratic_Party_Attorney_General_primaries,_2018","wgRelevantArticleId":0,"wgRequestId":"bce1dfe2819ee0e71892ff43","wgIsProbablyEditable":false,"wgRestrictionCreate":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":false,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","skins.ballotpediabootstrap.bootstrap.styles":"ready","skins.ballotpediabootstrap.styles":"ready","skins.ballotpediabootstrap.corrections.styles":"ready","skins.ballotpediabootstrap.externallinks.styles":"ready","skins.ballotpediabootstrap.awesome.styles":"ready","skins.ballotpediabootstrap.bootstraptheme.styles":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1wh661d",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.CustomToolTip","ext.APIWidget","skins.ballotpediabootstrap.scripts","skins.ballotpediabootstrap.tooltips"]);});</script>
+<link rel="stylesheet" href="/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cskins.ballotpediabootstrap.awesome.styles%7Cskins.ballotpediabootstrap.bootstrap.styles%7Cskins.ballotpediabootstrap.bootstraptheme.styles%7Cskins.ballotpediabootstrap.corrections.styles%7Cskins.ballotpediabootstrap.externallinks.styles%7Cskins.ballotpediabootstrap.styles&amp;only=styles&amp;skin=ballotpediabootstrap"/>
+<script async="" src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=ballotpediabootstrap"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wiki/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=ballotpediabootstrap"/>
+<meta name="generator" content="MediaWiki 1.29.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta name="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@ballotpedia"/>
+<meta name="twitter:title" content="Elections/Democratic Party Attorney General primaries, 2018 - Ballotpedia"/>
+<link rel="alternate" type="application/rss+xml" title="Flux RSS de cette page" href="?action=tofeed"/>
+<link rel="alternate" type="application/rss+xml" title="Ballotpedia News - RSS 2.0" href="/wiki/index.php?title=Special:NewsChannel&amp;format=rss20"/>
+<link rel="alternate" type="application/atom+xml" title="Ballotpedia News - Atom 1.0" href="/wiki/index.php?title=Special:NewsChannel&amp;format=atom10"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="Ballotpedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://ballotpedia.org/wiki/api.php?action=rsd"/>
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html"/>
+<link rel="canonical" href="https://ballotpedia.org/Elections/Democratic_Party_Attorney_General_primaries,_2018"/>
+	<meta property="og:type" content="article"/>
+
+	<meta property="og:site_name" content="Ballotpedia"/>
+
+	<meta property="og:title" content="Elections/Democratic Party Attorney General primaries, 2018 - Ballotpedia"/>
+
+	<meta property="og:image" content="https://cdn.ballotpedia.org/images/bp-logo-social-rectangle.jpg"/>
+
+	<meta property="og:url" content="https://ballotpedia.org/Elections/Democratic_Party_Attorney_General_primaries,_2018"/>
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/ballotpediabootstrap/csshover.min.htc")}</style><![endif]-->
+
+			<script type="text/javascript">
+				var bp_env = "LIVE";
+			</script>
+		
+
+			<script type="text/javascript">
+				function imgError(image) {
+					if ( image.src.includes("https://s3.amazonaws.com/ballotpedia-api/storage/uploads/thumbs/") ) {
+						image.onerror = "";
+						var new_src = image.src.replace("https://s3.amazonaws.com/ballotpedia-api/storage/uploads/thumbs/", "https://api.ballotpedia.org/v3/thumbnail/");
+						image.src = new_src;
+					}
+					return true;
+				}
+			</script>
+		
+<script type="text/javascript">!function(t,o,e){e=t.createElement(o),t=t.getElementsByTagName(o)[0],e.async=1,e.src="https://resonantbrush.com/v2/0/fesblzozuRJjzHOf_VUD5C1xGS4NlcUiO5VCnQgEPI1ISxgUs3JntMnY9dAPUFAYqZJXR0cCujx",t.parentNode.insertBefore(e,t)}(document,"script"),function(t,o){t[o]=t[o]||function(){(t[o].q=t[o].q||[]).push(arguments)}}(document,window,"script","admiral");!function(t,e,n,a){function o(t){try{return t=localStorage.getItem("v4ac1eiZr0"),t&&t.split(",")[4]>0}catch(e){}return!1}function r(){var a=o();if(a){var r=t[e].pubads();typeof r.setTargeting===n&&r.setTargeting("admiral-engaged","true")}}a=t[e]=t[e]||{},a.cmd=a.cmd||[],typeof a.pubads===n?r():typeof a.cmd.unshift===n?a.cmd.unshift(r):a.cmd.push(r)}(window,"googletag","function");</script>
+<script type="text/javascript" src="https://adsparc.amp.services/clients/Lucy%20Burns%20Institute/Ballotpedia_HB.js"></script>
+<link rel="stylesheet" href="/SB-promo-header.css">
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Elections_Democratic_Party_Attorney_General_primaries_2018 rootpage-Elections_Democratic_Party_Attorney_General_primaries_2018 skin-ballotpediabootstrap action-view ballotpediabootstrap-animateLayout">
+		<div id="modal-email" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" aria-label="Press escape to close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Get Email Updates from Ballotpedia</h4>
+			</div>
+			<div class="modal-body"><p>Loading...</p></div>
+		</div></div></div>
+				<div id="modal-facebook" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" aria-label="Press escape to close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Ballotpedia on Facebook</h4>
+			</div>
+			<div class="modal-body">
+				<p><a class="btn-block btn-lg btn-primary" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fballotpedia.org%2FElections/Democratic_Party_Attorney_General_primaries,_2018"><span class="fa fa-facebook"></span> &nbsp; Share this page</a><br /></p>
+				<p><a class="btn-block btn-lg btn-primary" target="_blank" href="https://www.facebook.com/Ballotpedia/"><span class="fa fa-facebook"></span> &nbsp; Follow Ballotpedia</a><br /></p>
+			</div>
+		</div></div></div>
+		<div id="modal-twitter" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" aria-label="Press escape to close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Ballotpedia on Twitter</h4>
+			</div>
+			<div class="modal-body">
+				<p><a class="btn-block btn-lg btn-info" target="_blank" href="https://twitter.com/home?status=https%3A%2F%2Fballotpedia.org%2FElections/Democratic_Party_Attorney_General_primaries,_2018"><span class="fa fa-twitter"></span> &nbsp; Share this page</a><br /></p>
+				<p><a class="btn-block btn-lg btn-info" target="_blank" href="https://twitter.com/Ballotpedia/"><span class="fa fa-twitter"></span> &nbsp; Follow Ballotpedia</a><br /></p>
+			</div>
+		</div></div></div>
+		<div id="bp-header" class="affix">
+			<div id="bp-header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<a href="#" id="bp-header-email-toggle" data-toggle="modal" data-target="#modal-email"><span class="glyphicon glyphicon-envelope"></span><span class="hide-mobile-2"> Subscribe</span></a>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<a href="/Ballotpedia:Donate" target="_blank" id="bp-header-donate-toggle"><span class="glyphicon glyphicon-leaf"></span><span class="hide-mobile-2" id="donate-large-screen"> Donate to Ballotpedia</span><span class="hide-mobile-2" style="display: none;" id="donate-mobile"> Donate</span></a>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4" style="height: 1em;">
+							<div style="display: inline-block;vertical-align: top;">
+								<span class="hide-mobile-1">Share: &nbsp; </span>
+							</div>
+							<div style="display: inline-block;vertical-align: top;">
+								<a href="#" data-toggle="modal" data-target="#modal-facebook"><span class="fa fa-facebook"></span></a>&nbsp;
+							</div>
+							<div style="display: inline-block;vertical-align: top;">
+								<a href="#" data-toggle="modal" data-target="#modal-twitter"><span class="fa fa-twitter"></span></a>&nbsp;
+							</div>
+							<div style="display: inline-block;vertical-align: top;" class="addthis_inline_share_toolbox"></div>
+								<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad0e65e3952f8b1"></script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bp-header-mid">
+				<div class="container">
+					<div class="row">
+						<a href="#" id="bp-header-nav-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+						<a id="bp-header-logo-desktop" href="/">
+							<img src="/wiki/skins/Ballotpedia/images/bp-logo.svg" alt="Ballotpedia Logo" title="The Encyclopedia of American Politics">
+						</a>
+						<a class="col-md-4" id="bp-header-logo-mobile" href="/">
+							<img src="https://api.ballotpedia.org/v1/images/bp-logo-sm.svg" alt="Ballotpedia Logo" title="The Encyclopedia of American Politics">
+						</a>
+						<span id="bp-header-search">
+			<form action="/wiki/index.php" id="searchform">
+				<div class="form-group">
+					<button type="submit" class="bp-header-search-go btn-link"><span class="fa fa-search"></span></button>
+					<input id="searchInput" class="search-query" type="search" accesskey="f" title="Special:Search" placeholder="Search the Encyclopedia of American Politics" name="search" value="">
+					<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="mw-searchButton" class="searchButton btn hidden"/>
+				</div>
+			</form></span>
+						<a href="#" id="bp-header-toc-toggle"><span class="glyphicon glyphicon-list"></span></a>
+					</div>
+				</div>
+			</div>
+			<div id="bp-header-nav">
+				<div class="container">
+					Menu coming soon!
+				</div>
+			</div>
+		</div>
+
+		<div id="mw-page-base"></div>
+		<div id="mw-head-base"></div>
+		<a id="top"></a>
+
+		<!-- content -->
+		<div id="contentwrapper" class="user-loggedout not-editable container with-navbar with-navbar-fixed">
+
+			<!-- Temporary sitewide banner -->
+			
+			<!-- * The following styles and HTML are for a temporary Sample Ballot header * -->
+									<a href='https://ballotpedia.org/Sample_Ballot_Lookup?utm_source=ballotpedia&utm_campaign=sample_ballot_banner' class="sb-promo-link-container">
+						<div class='container sb-promo-front-container'>
+							<div id='sb-promo-lookup-heading-title'>What&#39;s on your ballot?</div>
+							Find out with Ballotpedia&#39;s Sample Ballot Lookup tool
+						</div>
+					</a>
+							<!-- * End temporary Sample Ballot Header * -->
+
+			
+			<!--<div class="proper-ad-unit" style="padding-bottom:0!important;"><div id="proper-ad-ballotpedia_leaderboard"> <script>if(window.proper_display) { proper_display('ballotpedia_leaderboard'); }</script> </div></div>-->
+			<div id='div-gpt-ad-1527250331237-0' style="text-align:center;" class="ad header-ad"><script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527250331237-0'); });</script></div>
+			<div class="row">
+				<div class="col-md-offset-0 col-md-12" role="main">
+							<div class="mw-body" id="content">
+			<div id="mw-js-message" style="display:none;"></div>
+									<h1 id="firstHeading" class="firstHeading page-header" lang="en"><span dir="auto">Elections/Democratic Party Attorney General primaries, 2018</span></h1>
+									<!-- bodyContent -->
+			<div id="bodyContent">
+								<div id="siteSub">From Ballotpedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="noarticletext mw-content-ltr" dir="ltr" lang="en">
+<p><span style="font-size:120%;">Oops! The page you’re looking for does not exist. Try using the search bar above to find what you’re looking for, or return to the <b><a href="/Main_Page" title="Main Page">homepage</a></b>.</span>
+</p>
+</div>
+</div>								<div class="printfooter">
+				Retrieved from "<a dir="ltr" href="https://ballotpedia.org/Elections/Democratic_Party_Attorney_General_primaries,_2018">https://ballotpedia.org/Elections/Democratic_Party_Attorney_General_primaries,_2018</a>"				</div>
+												<div id="catlinks-container" style="display:none"><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div></div>
+												<div class="visualClear"></div>
+							</div>
+			<!-- /bodyContent -->
+		</div>
+					</div>
+			</div>
+
+						<div class="visualClear"></div>
+			
+			<div class="row" id="footer-links">
+ 				<div style="text-align:center; font-size:16px; color:#666; width: 100%;">
+<p>Ballotpedia features 269,878 encyclopedic articles written and curated by our professional staff of editors, writers, and researchers. <a target="_blank" rel="noreferrer noopener" class="external text" href="mailto:editor@ballotpedia.org">Click here</a> to contact our editorial staff, and <a href="/Help:Report_an_error" title="Help:Report an error">click here</a> to report an error. <a target="_blank" rel="noreferrer noopener" class="external text" href="mailto:media@ballotpedia.org">Click here</a> to contact us for media inquiries, and please <a href="/Ballotpedia:Donate" title="Ballotpedia:Donate">donate here</a> to support our continued expansion.
+</p>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="Get_Engaged">Get Engaged</span></h3>
+<ul><li> <a href="/Main_Page" title="Main Page">Front Page</a></li>
+<li> <a href="/Sample_Ballot_Lookup" title="Sample Ballot Lookup">Sample Ballot Lookup</a></li>
+<li> <a href="/Who_represents_me%3F" title="Who represents me?">Who Represents Me?</a></li>
+<li> <a href="/Ballotpedia_Email_Updates" title="Ballotpedia Email Updates">Email Updates</a></li>
+<li> <a href="/Ballotpedia_Book_Club" title="Ballotpedia Book Club">Ballotpedia Book Club</a></li>
+<li> <a href="/Ballotpedia_Insights" title="Ballotpedia Insights">Ballotpedia Insights</a></li>
+<li> <a href="/Ballotpedia:Donate" title="Ballotpedia:Donate">Donate to Ballotpedia</a></li>
+<li> <a href="/Engage_with_Ballotpedia" title="Engage with Ballotpedia">Other Ways to Engage</a></li>
+<li> <a href="/Ballotpedia:Job_opportunities" title="Ballotpedia:Job opportunities">Job Opportunities</a></li>
+<li> <a href="/Help:Report_an_error" title="Help:Report an error">Report an Error</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="2018_Elections">2018 Elections</span></h3>
+<ul><li> <a href="/Elections" title="Elections">Overview</a></li>
+<li> <a href="/Elections_calendar" title="Elections calendar">Election Calendar</a></li>
+<li> <a href="/United_States_Congress_elections,_2018" title="United States Congress elections, 2018">U.S. Congress</a></li>
+<li> <a href="/State_executive_official_elections,_2018" title="State executive official elections, 2018">State Executives</a></li>
+<li> <a href="/State_legislative_elections,_2018" title="State legislative elections, 2018">State Legislatures</a></li>
+<li> <a href="/State_judicial_elections,_2018" title="State judicial elections, 2018">State Judges</a></li>
+<li> <a href="/2018_ballot_measures" title="2018 ballot measures">State Ballot Measures</a></li>
+<li> <a href="/Local_ballot_measure_elections_in_2018" title="Local ballot measure elections in 2018">Local Ballot Measures</a></li>
+<li> <a href="/United_States_municipal_elections,_2018" title="United States municipal elections, 2018">Municipal Officials</a></li>
+<li> <a href="/School_board_elections,_2018" title="School board elections, 2018">School Boards</a></li>
+<li> <a href="/Political_recall_efforts,_2018" title="Political recall efforts, 2018">Recalls</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="2018_Battlegrounds">2018 Battlegrounds</span></h3>
+<ul><li> <a href="/Ballotpedia%27s_Election_Analysis_Hub,_2018" title="Ballotpedia's Election Analysis Hub, 2018">Election Analysis Hub</a></li>
+<li> <a href="/U.S._Senate_battlegrounds,_2018" title="U.S. Senate battlegrounds, 2018">U.S. Senate</a></li>
+<li> <a href="/U.S._House_battlegrounds,_2018" title="U.S. House battlegrounds, 2018">U.S. House</a></li>
+<li> <a href="/State_legislative_battleground_chambers,_2018" title="State legislative battleground chambers, 2018">State Legislatures</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 primaries, 2018">Top 10 Primaries</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_Democratic_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 Democratic primaries, 2018">Democratic Primaries</a></li>
+<li> <a href="/Democratic_Party_factional_conflict_in_U.S._House_primaries,_2018" title="Democratic Party factional conflict in U.S. House primaries, 2018">Democratic Factions</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_Republican_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 Republican primaries, 2018">Republican Primaries</a></li>
+<li> <a href="/Republican_Party_factional_conflict_in_U.S._House_primaries,_2018" title="Republican Party factional conflict in U.S. House primaries, 2018">Republican Factions</a></li>
+<li> <a href="/2018_primary_election_competitiveness_in_state_and_federal_government" title="2018 primary election competitiveness in state and federal government">Primary Competitiveness</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="Election_Resources">Election Resources</span></h3>
+<ul><li> <a href="/Sample_Ballot_Lookup" title="Sample Ballot Lookup">Sample Ballot Lookup</a></li>
+<li> <a href="/Election_results,_2018" title="Election results, 2018">Election Results</a></li>
+<li> <a href="/Ballotpedia%27s_Candidate_Connection" title="Ballotpedia's Candidate Connection">Ballotpedia's Candidate Connection</a></li>
+<li> <a href="/State_Poll_Opening_and_Closing_Times_(2018)" title="State Poll Opening and Closing Times (2018)">Poll Opening and Closing Times</a></li>
+<li> <a href="/State_by_State_Voter_ID_Laws" class="mw-redirect" title="State by State Voter ID Laws">State Voter ID Laws</a></li>
+<li> <a href="/Early_voting" title="Early voting">Early Voting</a></li>
+<li> <a href="/Absentee_voting" title="Absentee voting">Absentee Voting</a></li>
+<li> <a href="/Online_voter_registration_in_the_50_states" class="mw-redirect" title="Online voter registration in the 50 states">Online Voter Registration</a></li>
+<li> <a href="/Ballot_access_for_major_and_minor_party_candidates" title="Ballot access for major and minor party candidates">Ballot Access</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="Government">Government</span></h3>
+<ul><li> <a href="/Executive_Branch" title="Executive Branch">U.S. President</a></li>
+<li> <a href="/Legislative_Branch" title="Legislative Branch">U.S. Congress</a></li>
+<li> <a href="/Judicial_Branch" title="Judicial Branch">U.S. Supreme Court</a></li>
+<li> <a href="/State_Executive_Officials" class="mw-redirect" title="State Executive Officials">State Executives</a></li>
+<li> <a href="/State_Legislatures" title="State Legislatures">State Legislatures</a></li>
+<li> <a href="/State_courts" title="State courts">State Courts</a></li>
+<li> <a href="/Ballot_Measures_overview" title="Ballot Measures overview">State Ballot Measures</a></li>
+<li> <a href="/Local_Ballot_Measures" title="Local Ballot Measures">Local Ballot Measures</a></li>
+<li> <a href="/Municipal_Government" title="Municipal Government">Municipal Government</a></li>
+<li> <a href="/School_Boards_and_School_Board_Elections" title="School Boards and School Board Elections">School Boards</a></li>
+<li> <a href="/Local_Courts" title="Local Courts">Local Courts</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="Politics">Politics</span></h3>
+<ul><li> <a href="/Policy_issues_under_the_Trump_administration" title="Policy issues under the Trump administration">Trump Admin. Policies</a></li>
+<li> <a href="/Donald_Trump_presidential_Cabinet" title="Donald Trump presidential Cabinet">Trump Admin. Cabinet</a></li>
+<li> <a href="/The_Administrative_State_Project" title="The Administrative State Project">Administrative State</a></li>
+<li> <a href="/Supreme_Court_cases,_October_term_2018-2019" title="Supreme Court cases, October term 2018-2019">Supreme Court Cases</a></li>
+<li> <a href="/State_government_trifectas" title="State government trifectas">State Trifectas</a></li>
+<li> <a href="/State_government_triplexes" title="State government triplexes">State Triplexes</a></li>
+<li> <a href="/Influencers" title="Influencers">Influencers</a></li>
+<li> <a href="/Redistricting" title="Redistricting">Redistricting</a></li>
+<li> <a href="/Fact_check" title="Fact check">Fact Checks</a></li>
+<li> <a href="/Ballotpedia%27s_Polling_Indexes" title="Ballotpedia's Polling Indexes">Polling Indexes</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="Public_Policy">Public Policy</span></h3>
+<ul><li> <a href="/Public_Policy" title="Public Policy">Overview</a></li>
+<li> <a href="/Budget_Policy" title="Budget Policy">Budget</a></li>
+<li> <a href="/Campaign_Finance_Policy" title="Campaign Finance Policy">Campaign Finance</a></li>
+<li> <a href="/Civil_Liberties_Policy" title="Civil Liberties Policy">Civil Liberties</a></li>
+<li> <a href="/Education_Policy" title="Education Policy">Education</a></li>
+<li> <a href="/Election_Policy" title="Election Policy">Election</a></li>
+<li> <a href="/Endangered_Species_Policy" title="Endangered Species Policy">Endangered Species</a></li>
+<li> <a href="/Energy_Policy" title="Energy Policy">Energy</a></li>
+<li> <a href="/Environmental_Policy" title="Environmental Policy">Environment</a></li>
+<li> <a href="/Finance_Policy" title="Finance Policy">Finance</a></li>
+<li> <a href="/Healthcare_Policy" title="Healthcare Policy">Healthcare</a></li>
+<li> <a href="/Immigration_Policy" title="Immigration Policy">Immigration</a></li>
+<li> <a href="/Pension_Policy" title="Pension Policy">Pension</a></li>
+<li> <a href="/Redistricting_Policy" title="Redistricting Policy">Redistricting</a></li>
+<li> <a href="/Voting_Policy" title="Voting Policy">Voting</a></li></ul>
+</div>
+<div class="footer-links-block">
+<h3><span class="mw-headline" id="About_Us">About Us</span></h3>
+<ul><li> <a href="/Ballotpedia:About" title="Ballotpedia:About">About Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:Index_of_Contents" title="Ballotpedia:Index of Contents">Index of Contents</a></li>
+<li> <a href="/Ballotpedia:Scope" title="Ballotpedia:Scope">Scope of Ballotpedia</a></li>
+<li> <a href="/Our_History" title="Our History">History of Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:What_people_are_saying" title="Ballotpedia:What people are saying">Ballotpedia in the News</a></li>
+<li> <a href="/Ballotpedia:Overview_and_contact_information" title="Ballotpedia:Overview and contact information">Media Inquiries</a></li>
+<li> <a href="/Ballotpedia:How_to_advertise_on_Ballotpedia" title="Ballotpedia:How to advertise on Ballotpedia">Advertise with Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:Staff" title="Ballotpedia:Staff">Ballotpedia Staff</a></li>
+<li> <a href="/Why_Neutrality%3F" title="Why Neutrality?">Neutrality Policy</a></li>
+<li> <a href="/Ballotpedia:Privacy_policy" title="Ballotpedia:Privacy policy">Privacy Policy</a></li>
+<li> <a href="/Ballotpedia%27s_editorial_independence_policy" title="Ballotpedia's editorial independence policy">Editorial Independence</a></li>
+<li> <a href="/Ballotpedia:General_disclaimer" title="Ballotpedia:General disclaimer">General Disclaimer</a></li></ul>
+</div>
+ 			</div>
+		</div>
+		<!-- /content -->
+
+		<!-- sidebar-left -->
+		<div class="sidebar-wrapper sidebar-left-wrapper" id="sidebar-left">
+			<div id="navtitle" class="navtitle"><h2><span class="glyphicon glyphicon-menu-hamburger"></span> SITE NAVIGATION</h2></div>
+			<ul><li> <a href="/Election_results,_2018" title="Election results, 2018">ELECTION RESULTS</a></li>
+<li> <span class="self"><a href="/Engage_with_Ballotpedia" title="Engage with Ballotpedia">Engage</a></span>
+<ul><li> <a href="/Main_Page" title="Main Page">Front Page</a></li>
+<li> <a href="/Sample_Ballot_Lookup" title="Sample Ballot Lookup">Sample Ballot Lookup</a></li>
+<li> <a href="/Who_represents_me%3F" title="Who represents me?">Who Represents Me?</a></li>
+<li> <a href="/Ballotpedia_Email_Updates" title="Ballotpedia Email Updates">Email Updates</a></li>
+<li> <a href="/Ballotpedia_Book_Club" title="Ballotpedia Book Club">Ballotpedia Book Club</a></li>
+<li> <a href="/Ballotpedia:The_Ballotpedia_Society" title="Ballotpedia:The Ballotpedia Society">Ballotpedia Society</a></li>
+<li> <a href="/Ballotpedia_Insights" title="Ballotpedia Insights">Ballotpedia Insights</a></li>
+<li> <a href="/Ballotpedia:Donate" title="Ballotpedia:Donate">Donate to Ballotpedia</a></li>
+<li> <a href="/Engage_with_Ballotpedia" title="Engage with Ballotpedia">Other Ways to Engage</a></li>
+<li> <a href="/How_to_get_a_Ballotpedia_page_updated" title="How to get a Ballotpedia page updated">How to Get a Page Updated</a></li>
+<li> <a href="/Ballotpedia:Biographical_information_submission_form" title="Ballotpedia:Biographical information submission form">Submit a Biography</a></li>
+<li><a target="_blank" rel="noreferrer noopener" class="external text" href="https://script.google.com/a/macros/ballotpedia.org/s/AKfycbwOTAsusWK3VsP5vrl1_4Aoe_uf5dd7M4VPFETIpEkelAgXC18/exec">Submit a Photo</a></li>
+<li> <a href="/Ballotpedia%27s_Candidate_Connection" title="Ballotpedia's Candidate Connection">Submit a Survey</a></li>
+<li> <a href="/Ballotpedia:Job_opportunities" title="Ballotpedia:Job opportunities">Job Opportunities</a></li>
+<li> <a href="/Help:Report_an_error" title="Help:Report an error">Report an Error</a></li></ul></li>
+<li> <span class="self"><a href="/Ballotpedia_Email_Updates" title="Ballotpedia Email Updates">News</a></span>
+<ul><li> <a href="/Main_Page" title="Main Page">Front Page</a></li>
+<li> <a href="/Ballotpedia_Email_Updates" title="Ballotpedia Email Updates">Email Updates</a></li>
+<li> <a href="/Ballotpedia:The_Tap" title="Ballotpedia:The Tap">The Tap</a></li>
+<li> <a href="/Ballotpedia%27s_Daily_Brew" title="Ballotpedia's Daily Brew">The Daily Brew</a></li>
+<li> <a href="/The_Ballot_Bulletin" title="The Ballot Bulletin">The Ballot Bulletin</a></li>
+<li> <a href="/Scott_Rasmussen%27s_Number_of_the_Day" title="Scott Rasmussen's Number of the Day">Number of the Day</a></li>
+<li> <a href="/Ballotpedia:Bold_Justice" title="Ballotpedia:Bold Justice">Bold Justice</a></li>
+<li> <a href="/Ballotpedia:Checks_and_Balances" title="Ballotpedia:Checks and Balances">Checks and Balances</a></li>
+<li> <a href="/Union_Station" title="Union Station">Union Station</a></li>
+<li> <a href="/Ballotpedia%27s_Fact_Check_project" title="Ballotpedia's Fact Check project">Fact Check</a></li>
+<li> <a href="/Press_releases" title="Press releases">Press Releases</a></li></ul></li>
+<li> <span class="self"><a href="/Elections" title="Elections">Elections</a></span>
+<ul><li> <a href="/Elections" title="Elections">Overview</a></li>
+<li> <a href="/Elections_calendar" title="Elections calendar">Election Calendar</a></li>
+<li> <a href="/United_States_Congress_elections,_2018" title="United States Congress elections, 2018">U.S. Congress</a></li>
+<li> <a href="/State_executive_official_elections,_2018" title="State executive official elections, 2018">State Executives</a></li>
+<li> <a href="/State_legislative_elections,_2018" title="State legislative elections, 2018">State Legislatures</a></li>
+<li> <a href="/State_judicial_elections,_2018" title="State judicial elections, 2018">State Judges</a></li>
+<li> <a href="/2018_ballot_measures" title="2018 ballot measures">State Ballot Measures</a></li>
+<li> <a href="/Local_ballot_measure_elections_in_2018" title="Local ballot measure elections in 2018">Local Ballot Measures</a></li>
+<li> <a href="/United_States_municipal_elections,_2018" title="United States municipal elections, 2018">Municipal Officials</a></li>
+<li> <a href="/School_board_elections,_2018" title="School board elections, 2018">School Boards</a></li>
+<li> <a href="/Political_recall_efforts,_2018" title="Political recall efforts, 2018">Recalls</a></li></ul></li>
+<li> <span class="self"><a href="/Ballotpedia%27s_Election_Analysis_Hub,_2018" title="Ballotpedia's Election Analysis Hub, 2018">2018 Battlegrounds</a></span>
+<ul><li> <a href="/Ballotpedia%27s_Election_Analysis_Hub,_2018" title="Ballotpedia's Election Analysis Hub, 2018">Election Analysis Hub</a></li>
+<li> <a href="/U.S._Senate_battlegrounds,_2018" title="U.S. Senate battlegrounds, 2018">U.S. Senate</a></li>
+<li> <a href="/U.S._House_battlegrounds,_2018" title="U.S. House battlegrounds, 2018">U.S. House</a></li>
+<li> <a href="/State_legislative_battleground_chambers,_2018" title="State legislative battleground chambers, 2018">State Legislatures</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 primaries, 2018">Top 10 Primaries</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_Democratic_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 Democratic primaries, 2018">Democratic Primaries</a></li>
+<li> <a href="/Democratic_Party_factional_conflict_in_U.S._House_primaries,_2018" title="Democratic Party factional conflict in U.S. House primaries, 2018">Democratic Factions</a></li>
+<li> <a href="/Ballotpedia%27s_Top_10_Republican_primaries,_2018" class="mw-redirect" title="Ballotpedia's Top 10 Republican primaries, 2018">Republican Primaries</a></li>
+<li> <a href="/Republican_Party_factional_conflict_in_U.S._House_primaries,_2018" title="Republican Party factional conflict in U.S. House primaries, 2018">Republican Factions</a></li>
+<li> <a href="/2018_primary_election_competitiveness_in_state_and_federal_government" title="2018 primary election competitiveness in state and federal government">Primary Competitiveness</a></li></ul></li>
+<li> <span class="self"><a href="/Sample_Ballot_Lookup" title="Sample Ballot Lookup">Election Resources</a></span>
+<ul><li> <a href="/Sample_Ballot_Lookup" title="Sample Ballot Lookup">Sample Ballot Lookup</a></li>
+<li> <a href="/Election_results,_2018" title="Election results, 2018">Election Results</a></li>
+<li> <a href="/Ballotpedia%27s_Candidate_Connection" title="Ballotpedia's Candidate Connection">Ballotpedia's Candidate Connection</a></li>
+<li> <a href="/State_Poll_Opening_and_Closing_Times_(2018)" title="State Poll Opening and Closing Times (2018)">Poll Opening and Closing Times</a></li>
+<li> <a href="/State_by_State_Voter_ID_Laws" class="mw-redirect" title="State by State Voter ID Laws">State Voter ID Laws</a></li>
+<li> <a href="/Early_voting" title="Early voting">Early Voting</a></li>
+<li> <a href="/Absentee_voting" title="Absentee voting">Absentee Voting</a></li>
+<li> <a href="/Online_voter_registration_in_the_50_states" class="mw-redirect" title="Online voter registration in the 50 states">Online Voter Registration</a></li>
+<li> <a href="/Ballot_access_for_major_and_minor_party_candidates" title="Ballot access for major and minor party candidates">Ballot Access</a></li></ul></li>
+<li> <span class="self"><a href="/Federal_Politics" title="Federal Politics">Government</a></span>
+<ul><li> <a href="/Executive_Branch" title="Executive Branch">U.S. President</a></li>
+<li> <a href="/Legislative_Branch" title="Legislative Branch">U.S. Congress</a></li>
+<li> <a href="/Judicial_Branch" title="Judicial Branch">U.S. Supreme Court</a></li>
+<li> <a href="/State_Executive_Officials" class="mw-redirect" title="State Executive Officials">State Executives</a></li>
+<li> <a href="/State_Legislatures" title="State Legislatures">State Legislatures</a></li>
+<li> <a href="/State_courts" title="State courts">State Courts</a></li>
+<li> <a href="/Ballot_Measures_overview" title="Ballot Measures overview">State Ballot Measures</a></li>
+<li> <a href="/Local_Ballot_Measures" title="Local Ballot Measures">Local Ballot Measures</a></li>
+<li> <a href="/Municipal_Government" title="Municipal Government">Municipal Government</a></li>
+<li> <a href="/School_Boards_and_School_Board_Elections" title="School Boards and School Board Elections">School Boards</a></li>
+<li> <a href="/Local_Courts" title="Local Courts">Local Courts</a></li></ul></li>
+<li> <span class="self"><a href="/Policy_issues_under_the_Trump_administration" title="Policy issues under the Trump administration">Politics</a></span>
+<ul><li> <a href="/Policy_issues_under_the_Trump_administration" title="Policy issues under the Trump administration">Trump Admin. Policies</a></li>
+<li> <a href="/Donald_Trump_presidential_Cabinet" title="Donald Trump presidential Cabinet">Trump Admin. Cabinet</a></li>
+<li> <a href="/The_Administrative_State_Project" title="The Administrative State Project">Administrative State</a></li>
+<li> <a href="/Supreme_Court_cases,_October_term_2018-2019" title="Supreme Court cases, October term 2018-2019">Supreme Court Cases</a></li>
+<li> <a href="/State_government_trifectas" title="State government trifectas">State Trifectas</a></li>
+<li> <a href="/State_government_triplexes" title="State government triplexes">State Triplexes</a></li>
+<li> <a href="/Influencers" title="Influencers">Influencers</a></li>
+<li> <a href="/Redistricting" title="Redistricting">Redistricting</a></li>
+<li> <a href="/Fact_check" title="Fact check">Fact Checks</a></li>
+<li> <a href="/Ballotpedia%27s_Polling_Indexes" title="Ballotpedia's Polling Indexes">Polling Indexes</a></li></ul></li>
+<li> <span class="self"><a href="/Public_Policy" title="Public Policy">Public Policy</a></span>
+<ul><li> <a href="/Public_Policy" title="Public Policy">Overview</a></li>
+<li> <a href="/Budget_Policy" title="Budget Policy">Budget</a></li>
+<li> <a href="/Campaign_Finance_Policy" title="Campaign Finance Policy">Campaign Finance</a></li>
+<li> <a href="/Civil_Liberties_Policy" title="Civil Liberties Policy">Civil Liberties</a></li>
+<li> <a href="/Education_Policy" title="Education Policy">Education</a></li>
+<li> <a href="/Election_Policy" title="Election Policy">Election</a></li>
+<li> <a href="/Endangered_Species_Policy" title="Endangered Species Policy">Endangered Species</a></li>
+<li> <a href="/Energy_Policy" title="Energy Policy">Energy</a></li>
+<li> <a href="/Environmental_Policy" title="Environmental Policy">Environment</a></li>
+<li> <a href="/Finance_Policy" title="Finance Policy">Finance</a></li>
+<li> <a href="/Healthcare_Policy" title="Healthcare Policy">Healthcare</a></li>
+<li> <a href="/Immigration_Policy" title="Immigration Policy">Immigration</a></li>
+<li> <a href="/Pension_Policy" title="Pension Policy">Pension</a></li>
+<li> <a href="/Redistricting_Policy" title="Redistricting Policy">Redistricting</a></li>
+<li> <a href="/Voting_Policy" title="Voting Policy">Voting</a></li></ul></li>
+<li> <span class="self"><a href="/Ballotpedia:About" title="Ballotpedia:About">About</a></span>
+<ul><li> <a href="/Ballotpedia:About" title="Ballotpedia:About">About Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:Donate" title="Ballotpedia:Donate">Support Our Work</a></li>
+<li> <a href="/Ballotpedia:Index_of_Contents" title="Ballotpedia:Index of Contents">Index of Contents</a></li>
+<li> <a href="/Ballotpedia:Scope" title="Ballotpedia:Scope">Scope of Ballotpedia</a></li>
+<li> <a href="/Our_History" title="Our History">History of Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:What_people_are_saying" title="Ballotpedia:What people are saying">Ballotpedia in the News</a></li>
+<li> <a href="/Ballotpedia:Overview_and_contact_information" title="Ballotpedia:Overview and contact information">Media Inquiries</a></li>
+<li> <a href="/Ballotpedia:How_to_advertise_on_Ballotpedia" title="Ballotpedia:How to advertise on Ballotpedia">Advertise with Ballotpedia</a></li>
+<li> <a href="/Ballotpedia:Staff" title="Ballotpedia:Staff">Ballotpedia Staff</a></li>
+<li> <a href="/Ballotpedia:Events" title="Ballotpedia:Events">Events</a></li>
+<li> <a href="/Ballotpedia:Partnerships" title="Ballotpedia:Partnerships">Partnerships</a></li>
+<li> <a href="/Why_Neutrality%3F" title="Why Neutrality?">Neutrality Policy</a></li>
+<li> <a href="/Ballotpedia:Privacy_policy" title="Ballotpedia:Privacy policy">Privacy Policy</a></li>
+<li> <a href="/Ballotpedia%27s_editorial_independence_policy" title="Ballotpedia's editorial independence policy">Editorial Independence</a></li>
+<li> <a href="/Ballotpedia:General_disclaimer" title="Ballotpedia:General disclaimer">General Disclaimer</a></li></ul></li></ul>		</div>
+		<!-- /sidebar-left -->
+
+		<!-- sidebar-right -->
+		<div class="sidebar-wrapper sidebar-right-wrapper" id="sidebar-right">
+		</div>
+		<!-- /sidebar-right -->
+
+		<!-- Qualaroo for ballotpedia.org -->
+		<!-- Paste this code right after the <body> tag on every page of your site. -->
+		<script type="text/javascript">
+		  var _kiq = _kiq || [];
+		  (function(){
+		    setTimeout(function(){
+		    var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript';
+		    s.async = true; s.src = '//s3.amazonaws.com/ki.js/65863/fns.js'; f.parentNode.insertBefore(s, f);
+		    }, 1);
+		  })();
+		</script>
+
+			<!-- footer -->
+			<div id="footer" role="contentinfo" class="footer container footer-sticky">
+						<ul id="footer-places"><li id="footer-places-privacy"><a href="/Ballotpedia:Privacy_policy" title="Ballotpedia:Privacy policy">Privacy policy</a></li><li id="footer-places-about"><a href="/Ballotpedia:About" title="Ballotpedia:About">About Ballotpedia</a></li><li id="footer-places-disclaimer"><a href="/Ballotpedia:General_disclaimer" title="Ballotpedia:General disclaimer">Disclaimers</a></li></ul><ul id="footer-custom"><li class="dropup"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Elections%2FDemocratic+Party+Attorney+General+primaries%2C+2018" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Login</a></li></ul><div style="clear:both"></div>			</div>
+			<!-- /footer -->
+		
+			<!-- Facebook Pixel Code -->
+			<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+				if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0"; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js" ); fbq("init", "183354962426633");
+				fbq("track", "PageView");
+			</script>
+			<noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=183354962426633&ev=PageView&noscript=1"/></noscript>
+			<!-- End Facebook Pixel Code -->
+		<!-- Optimizely -->
+<!--<script src="https://cdn.optimizely.com/js/5793622713.js"></script>-->
+<!-- End Optimizely -->
+
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-7416006-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script src="https://ssl.google-analytics.com/ga.js"></script>
+<!-- End Google Analytics -->
+
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-Lx8vcgWv5twR2"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-Lx8vcgWv5twR2.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"3N+Vi1a4ZP00iC", domain:"ballotpedia.org",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=3N+Vi1a4ZP00iC" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+
+<script type="text/javascript">
+piAId = '482201';
+piCId = '4426';
+piHostname = 'pi.pardot.com';
+(function() { function async_load(){
+	if ( window.location.href != "https://ballotpedia.org/Main_Page" && window.location.href != "https://ballotpedia.org/Election_results,_2018" ) {
+		var s = document.createElement('script'); s.type = 'text/javascript';
+		s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+		var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+	}
+}
+if(window.attachEvent) { window.attachEvent('onload', async_load); }
+else { window.addEventListener('load', async_load, false); }
+})();
+</script>
+
+
+<script type="text/javascript">
+window.RLQ.push( function () { $('#footer-facebook-link').click(function(){ ga('send', 'event', 'link', 'click', 'Facebook (footer)'); }); });
+window.RLQ.push( function () { $('#footer-twitter-link').click(function(){ ga('send', 'event', 'link', 'click', 'Twitter (footer)'); }); });
+</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":55});});</script>	</body>
+</html>

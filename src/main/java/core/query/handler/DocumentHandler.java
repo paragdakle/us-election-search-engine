@@ -1,8 +1,9 @@
 package core.query.handler;
 
+import api.routes.Router;
 import core.filter.HTMLFilter;
 import core.filter.IFilter;
-import core.indexing.io.FileHandler;
+import core.io.FileHandler;
 import core.nlp.Tokenizer;
 import core.query.model.Document;
 import core.utils.Constants;
@@ -79,6 +80,17 @@ public class DocumentHandler {
         tokenizer.getTokenMap()
                 .get(name)
                 .forEach(document::addTerm);
+        if(Router.pageRank != null && Router.pageRank.containsKey(name)) {
+            document.setPageRank(Router.pageRank.get(name));
+        }
+        if(Router.authorityScores != null && Router.authorityScores.containsKey(name)) {
+            document.setType(document.TYPE_AUTHORITY);
+            document.setWeight(Router.authorityScores.get(name));
+        }
+        if(Router.hubScores != null && Router.hubScores.containsKey(name)) {
+            document.setType(document.TYPE_HUB);
+            document.setWeight(Router.hubScores.get(name));
+        }
         //Currently generating document vector here. Will move it to a different location later if needed.
         //Following lnc schema.
         document.generateVector();

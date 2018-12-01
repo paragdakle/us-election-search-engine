@@ -1,6 +1,7 @@
 package core.indexing;
 
-import core.indexing.io.RandomAccessFileHandler;
+import core.filter.HTMLFilter;
+import core.io.RandomAccessFileHandler;
 import core.nlp.Tokenizer;
 import org.junit.Test;
 import core.utils.Constants;
@@ -36,7 +37,7 @@ public class IndexTest {
 
     private void createIndex(String corpusPath) {
         Tokenizer tokenizer = new Tokenizer(Tokenizer.LEMMA_TOKENS, Utils.loadStopwords("src/main/resources/stopwords.txt"));
-        tokenizer.tokenize(corpusPath, new SGMLFilter(), true);
+        tokenizer.tokenize(corpusPath, new HTMLFilter(), true);
         SPIMI spimi = new SPIMI();
         spimi.createIndex(tokenizer.getTokenMap(), outFile);
     }
