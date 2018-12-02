@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+</head>
+
+<body>
+<p align="right">
+<form name="jump" class="right">
+    <select name="menu">
+        <option value="#">Select an option</option>
+        <option value="#">Results after indexing</option>
+        <option value="#">Results after clustering</option>
+        <option value="#">Results after query expansion</option>
+
+    </select>
+    <input type="button" onClick="location=document.jump.menu.options[document.jump.menu.selectedIndex].value;" value="GO">
+</form>
+
+
+
+<form>
+<form name="jump" class="right">
+    <select id="relevance" name="menu">
+        <option value="#">Relevance</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+
+    </select>
+</form>
+
+
+<form name="jump" class="right">
+    <select id="clustering" name="menu">
+        <option value="#">Clustering</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+
+    </select>
+</form>
+<form name="jump" class="right">
+    <select id="QueryExpansion" name="menu">
+        <option value="#">Query Expansion</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+
+</form>
+<button id="submit">Submit</button>
+</form>
+</p>
+<div class="wrapper">
+    <div class="profile">
+        <table id= "userdata" border="2">
+            <thead>
+            <th>Rank</th>
+            <th>Id</th>
+            <th>Score</th>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script>
+        $(document).ready(function() {
+            $.ajax({
+                type: 'POST',
+                url: "/search",
+                data: jQuery.param({ query: "$query", relevance : $relevance, clustering: $clustering, qe: $qe}),
+                dataType: "json",
+                success: displayAll
+            });
+        });
+        function displayAll(data){
+            if(data.data) {
+                $.each(data.data, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + f.rank + "</td>" +
+                            "<td>" + f.id + "</td>" + "<td>" + f.score + "</td>" + "</tr>"
+                    $(tblRow).appendTo("#userdata tbody");
+                });
+            }
+        }
+        $("#submit").click(function (e) {
+            /*var relevance_id = $("#relevance").val();
+            var clustering_id = $("#clustering").val();
+            var QueryExpansion_id = $("#QueryExpansion").val();*/
+            $.ajax({
+                type: 'POST',
+                url: "/search",
+                data: jQuery.param({ query: "election", relevance : 1, clustering: 1, qe: 1}),
+                dataType: "json",
+                success: displayAll
+            });
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,22 +1,24 @@
 package core.query.handler;
 
+import api.Utils.Constants;
 import api.routes.Router;
 import core.filter.IFilter;
 import core.filter.QueryFilter;
 import core.nlp.Tokenizer;
 import core.query.model.Document;
 import core.query.model.Query;
+import core.ranking.ConstructGraphHelper;
+import core.ranking.HITS;
+import core.ranking.model.Graph;
 import core.utils.Formatter;
 import core.utils.Utils;
+import org.apache.commons.codec.binary.Base64;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class QueryHandler {
-
-    public static final byte SIMPLE_COSINE_SIMILARITY = 0;
-    public static final byte CS_PAGERANK = 1;
-    public static final byte CS_HITS = 2;
 
     private String queryStr;
 
@@ -77,47 +79,87 @@ public class QueryHandler {
         if(K > documents.length) {
             K = documents.length;
         }
-        if(method == SIMPLE_COSINE_SIMILARITY) {
-            return getTopKDocumentsWithCosineSim(documents, K, method);
+        Map<String, Double> csResults = getTopKDocumentsWithCosineSim(documents, K);
+        if(method == Constants.SIMPLE_COSINE) {
+            return csResults;
         }
-        if(method == CS_PAGERANK) {
-            return getTopKDocumentsWithCosineSim(documents, K, method);
+        if(method == Constants.SIMPLE_COSINE_W_PR) {
+            return reorderDocumentsWPR(csResults);
+        }
+        if (method == Constants.SIMPLE_COSINE_W_HITS) {
+            Graph subGraph = ConstructGraphHelper.extractSubGraph(Router.mainGraph, csResults.keySet());
+            HITS hits = new HITS(subGraph);
+            hits.computeHITSScores();
+            return reorderDocumentsWHITS(hits, csResults.keySet());
         }
         return null;
     }
 
-    private Map<String, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K, byte method) {
+    private Map<String, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K) {
         Map<String, Double> queryDocumentCosineScores = new LinkedHashMap<>();
         for (Document document : documents) {
-            double score = Utils.computeDotProduct(query.getVector(), document.getVector());
-            if(score > 0) {
-                queryDocumentCosineScores.put(document.getName(), score);
+            if(document != null) {
+                double score = Utils.computeDotProduct(query.getVector(), document.getVector());
+                if (score > 0) {
+                    queryDocumentCosineScores.put(document.getName(), score);
+                }
             }
         }
         queryDocumentCosineScores = new Utils<String>().sortMap(queryDocumentCosineScores);
         Map<String, Double> result = new LinkedHashMap<>();
         for(String key: queryDocumentCosineScores.keySet()) {
-            if(method == CS_PAGERANK && Router.pageRank != null) {
-                result.put(key, Router.pageRank.get(key));
-            }
-            else if(method == CS_HITS) {
-                if(Router.authorityScores != null && Router.authorityScores.containsKey(key)) {
-                    result.put(key, Router.authorityScores.get(key));
-                }
-                else if(Router.hubScores != null && Router.hubScores.containsKey(key)) {
-                    result.put(key, Router.hubScores.get(key));
-                }
-                else {
-                    result.put(key, 0.0);
-                }
-            }
-            else {
-                result.put(key, queryDocumentCosineScores.get(key));
-            }
+            result.put(new String(Base64.decodeBase64(key)), queryDocumentCosineScores.get(key));
             if (--K == 0) {
                 break;
             }
         }
         return result;
+    }
+
+    private Map<String, Double> reorderDocumentsWPR(Map<String, Double> csResults) {
+        Map<String, Double> prResults = new LinkedHashMap<>(csResults);
+        if(Router.pageRank != null) {
+            for(String key: csResults.keySet()) {
+                prResults.put(key, Router.pageRank.getOrDefault(key, 0.0));
+            }
+            return new Utils<String>().sortMap(prResults);
+        }
+        return prResults;
+    }
+
+    private Map<String, Double> reorderDocumentsWHITS(HITS hits, Set<String> csResultsKeys) {
+        Map<String, Double> hitsResults = new LinkedHashMap<>();
+        Map<String, Double> hubScores = new LinkedHashMap<>();
+        Map<String, Double> authorityScores = new LinkedHashMap<>();
+        Map<String, Double[]> actualHubScores= hits.getHubScores();
+        Map<String, Double[]> actualAuthScores= hits.getAuthorityScores();
+//        for(String key: csResultsKeys) {
+        for(String key: actualAuthScores.keySet()) {
+            if(actualHubScores.containsKey(key)) {
+                hubScores.put(key, actualHubScores.get(key)[1]);
+            }
+            if(actualAuthScores.containsKey(key)) {
+                authorityScores.put(key, actualAuthScores.get(key)[1]);
+            }
+        }
+        Utils<String> utils = new Utils<>();
+        hubScores = utils.sortMap(hubScores);
+        authorityScores = utils.sortMap(authorityScores);
+        byte counter = 0;
+        for(String key: hubScores.keySet()) {
+            if(counter < 10)
+                hitsResults.put(key, hubScores.get(key));
+            else
+                break;
+            counter++;
+        }
+        for(String key: authorityScores.keySet()) {
+            if(counter > 0)
+                hitsResults.put(key, authorityScores.get(key));
+            else
+                break;
+            counter--;
+        }
+        return hitsResults;
     }
 }
