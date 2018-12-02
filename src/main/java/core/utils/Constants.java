@@ -6,7 +6,7 @@ public interface Constants {
 
     String HTML_STYLE_TAG_REGEX = "<style.*?>(.*?)</style>";
 
-    String HTML_COMMENT_REGEX = "<style.*?>(.*?)</style>";
+    String HTML_COMMENT_REGEX = "<!--(.*?)-->";
 
     String HTML_TAG_REGEX = "<[/]?.*?>";
 
@@ -27,4 +27,12 @@ public interface Constants {
     String TOKENIZED_CORPUS_DIR_PATH = "output/corpus/";
 
     int MAX_BLOCK_FILES_COUNT = 3900;
+
+    byte QE_ASSOCIATION = 1;
+
+    byte QE_METRIC = 2;
+
+    byte QE_SCALAR = 3;
+
+    byte QE_ROCCHIO = 4;
 }

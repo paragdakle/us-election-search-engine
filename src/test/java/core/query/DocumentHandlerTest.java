@@ -21,7 +21,7 @@ public class DocumentHandlerTest {
 
     @Test
     public void loadDocumentTokensTest() {
-        DocumentHandler documentHandler = new DocumentHandler(Constants.CORPUS_DIR_PATH, 500);
+        DocumentHandler documentHandler = new DocumentHandler(Constants.TOKENIZED_CORPUS_DIR_PATH, 500);
         documentHandler.loadDocuments();
         for (Document document : documentHandler.getDocuments()) {
             assertTrue(document.getTermMap().size() != 0);

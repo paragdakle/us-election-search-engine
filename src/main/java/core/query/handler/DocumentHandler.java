@@ -64,14 +64,6 @@ public class DocumentHandler {
         if(Router.pageRank != null && Router.pageRank.containsKey(name)) {
             document.setPageRank(Router.pageRank.get(name));
         }
-        if(Router.authorityScores != null && Router.authorityScores.containsKey(name)) {
-            document.setType(document.TYPE_AUTHORITY);
-            document.setWeight(Router.authorityScores.get(name));
-        }
-        if(Router.hubScores != null && Router.hubScores.containsKey(name)) {
-            document.setType(document.TYPE_HUB);
-            document.setWeight(Router.hubScores.get(name));
-        }
         //Currently generating document vector here. Will move it to a different location later if needed.
         //Following lnc schema.
         document.generateVector();

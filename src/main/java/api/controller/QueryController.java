@@ -8,7 +8,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import core.query.handler.DocumentHandler;
 import core.query.handler.QueryHandler;
-import org.apache.commons.codec.binary.Base64;
 import spark.Request;
 
 import java.util.Map;
@@ -41,17 +40,26 @@ public class QueryController implements IController {
         DocumentHandler documentHandler = new DocumentHandler(core.utils.Constants.TOKENIZED_CORPUS_DIR_PATH);
         documentHandler.loadDocuments();
 
-        Map<String, Double> results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY,50);
+        byte modelType = Constants.SIMPLE_COSINE;
+        try {
+            modelType = Byte.parseByte(rModelType);
+        }
+        catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
+
+        Map<String, Double> results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType,20);
         JsonArray jsonElement = new JsonArray();
+
         int counter = 1;
-        for(String key: results.keySet()) {
+        for (String key : results.keySet()) {
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("rank", counter++);
-            jsonObject.addProperty("id", new String(Base64.decodeBase64(key)));
+            jsonObject.addProperty("id", key);
             jsonObject.addProperty("score", results.get(key));
             jsonElement.add(jsonObject);
         }
-
+//        System.out.println(toGson(StandardResponse.getSuccessResponse(jsonElement)));
         return toGson(StandardResponse.getSuccessResponse(jsonElement));
     }
 

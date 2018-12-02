@@ -56,7 +56,7 @@ public class QueryHandlerTest {
         documentHandler.loadDocuments();
 
         int k = 10;
-        Map<String, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), QueryHandler.SIMPLE_COSINE_SIMILARITY, k);
+        Map<String, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), api.Utils.Constants.SIMPLE_COSINE, k);
         assertNotNull(cosineScores);
         assertEquals(k, cosineScores.size());
         System.out.println(System.currentTimeMillis());

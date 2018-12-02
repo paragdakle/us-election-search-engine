@@ -2,9 +2,12 @@ package core.ranking;
 
 import core.io.FileHandler;
 import core.ranking.model.Graph;
+import core.ranking.model.Node;
 import core.utils.Utils;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ConstructGraphHelper {
 
@@ -32,6 +35,35 @@ public class ConstructGraphHelper {
         }
     }
 
+    public static Graph extractSubGraph(Graph graph, Set<String> rootSetURL) {
+        Graph subGraph = new Graph();
+        Map<String, Node> nodes = graph.getNodes();
+
+        for(String rootUrl: rootSetURL) {
+            subGraph.addNode(rootUrl);
+            if(nodes.containsKey(rootUrl)) {
+                Node node = nodes.get(rootUrl);
+                if (node.getTargetNodes() != null) {
+                    for (Node tagetNode : node.getTargetNodes()) {
+                        subGraph.addNode(tagetNode.getName());
+                        subGraph.addEdge(rootUrl, tagetNode.getName());
+                    }
+                }
+                if (node.getSourceNodes() != null) {
+                    for (Node sourceNode : node.getSourceNodes()) {
+                        subGraph.addNode(sourceNode.getName());
+                        subGraph.addEdge(sourceNode.getName(), rootUrl);
+                    }
+                }
+            }
+            else {
+                System.out.println(rootUrl + " is not present in the graph");
+            }
+        }
+
+        return subGraph;
+    }
+
     public Graph getGraph() {
         return graph;
     }
@@ -43,12 +75,6 @@ public class ConstructGraphHelper {
         PageRank pageRank = new PageRank(constructGraphHelper.getGraph());
         pageRank.computeGraphPageRank();
         pageRank.writeResults("output/pagerank.txt");
-
-        constructGraphHelper = new ConstructGraphHelper("src/main/resources/links.txt");
-        constructGraphHelper.constructGraph();
-        HITS hits = new HITS(constructGraphHelper.getGraph());
-        hits.computeHITSScores();
-        hits.writeResults("output/hits.txt");
 
     }
 }
