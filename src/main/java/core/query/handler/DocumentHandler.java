@@ -6,11 +6,15 @@ import core.query.model.Document;
 import core.utils.Constants;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DocumentHandler {
 
     private Document[] documents;
+
+    public Map<String, Document[]> rocchioDocuments;
 
     private String corpusPath;
 
@@ -50,6 +54,31 @@ public class DocumentHandler {
             else {
                 documents = new Document[1];
                 documents[0] = toDocument(fileHandler.readFileContent(file), 0, file.getName());
+            }
+        }
+        loadRocchioDocuments();
+    }
+
+    private void loadRocchioDocuments() {
+        fileHandler = new FileHandler(Constants.ROCCHIO_CORPUS_DIR_PATH);
+        rocchioDocuments = new HashMap<>();
+        if(!corpusPath.isEmpty()) {
+            File file = new File(Constants.ROCCHIO_CORPUS_DIR_PATH);
+            if(file.isDirectory()) {
+                for (File file1 : file.listFiles()) {
+                    if (file1.isFile()) {
+                        List<String> rocchioFileNames = fileHandler.readFileContent(file1);
+                        Document[] rocchioDocumentsArray = new Document[rocchioFileNames.size()];
+                        int counter = 0;
+                        for(String filename: rocchioFileNames) {
+                            File file2 = new File(Constants.TOKENIZED_CORPUS_DIR_PATH + filename);
+                            if(file2.isFile()) {
+                                rocchioDocumentsArray[counter++] = toDocument(fileHandler.readFileContent(file2), counter, file2.getName().replace(".txt", ""));
+                            }
+                        }
+                        rocchioDocuments.put(file1.getName().replace(".txt", ""), rocchioDocumentsArray);
+                    }
+                }
             }
         }
     }

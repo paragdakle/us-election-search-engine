@@ -37,7 +37,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon2">Expanded Query</span>
       </div>
-      <input type="text" class="form-control" id="exp_query_input" placeholder="expanded search query" aria-label="expanded_query" aria-describedby="basic-addon2" value="$expandedQuery" readonly>
+      <input type="text" class="form-control" id="exp_query_input" placeholder="expanded search query" aria-label="expanded_query" aria-describedby="basic-addon2" value="$expandedQuery">
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Advanced Search</div>
@@ -110,6 +110,7 @@
         }
         $("#submit").click(function (e) {
             $("#results_list").empty();
+            $("#exp_query_input").val("");
             var relevanceSelectValue = $("#relevanceSelect").val();
             var clusteringSelectValue = $("#clusteringSelect").val();
             var qeSelectValue = $("#qeSelect").val();
@@ -126,3 +127,9 @@
 </div>
 </body>
 </html>
+
+florida recount
+association and vector
+
+us presidential
+scalar and vector

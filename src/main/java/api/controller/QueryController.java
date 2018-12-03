@@ -1,6 +1,7 @@
 package api.controller;
 
 import QueryExpansion.QueryExpansion;
+import QueryExpansion.Rocchio;
 import api.Utils.Constants;
 import api.model.StandardResponse;
 import api.routes.Router;
@@ -68,7 +69,19 @@ public class QueryController implements IController {
             }
             results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), (byte)(modelType % 3), K, false);
             try {
-                String newQuery = QueryExpansion.expander(queryString, results.keySet(), qeType);
+                String newQuery;
+                if(qeType != core.utils.Constants.QE_ROCCHIO) {
+                    newQuery = QueryExpansion.expander(queryString, results.keySet(), qeType);
+                }
+                else {
+                    String filteredQueryString = queryString.replaceAll(" ", "");
+                    if(documentHandler.rocchioDocuments.containsKey(filteredQueryString + "_p")) {
+                        newQuery = Rocchio.return_best(queryHandler.getQuery(), documentHandler.rocchioDocuments.get(filteredQueryString + "_p"), documentHandler.rocchioDocuments.get(filteredQueryString + "_n"));
+                    }
+                    else {
+                        newQuery = queryString;
+                    }
+                }
                 QueryHandler newQueryHandler = new QueryHandler(newQuery);
                 newQueryHandler.populateQueryObject();
                 newQueryHandler.populateQueryVector(Router.indexHeaders);

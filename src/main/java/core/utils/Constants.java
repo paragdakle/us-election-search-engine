@@ -24,6 +24,8 @@ public interface Constants {
 
     String CORPUS_DIR_PATH = "data/project/";
 
+    String ROCCHIO_CORPUS_DIR_PATH = "data/rocchio/";
+
     String TOKENIZED_CORPUS_DIR_PATH = "output/corpus/";
 
     int MAX_BLOCK_FILES_COUNT = 3900;
