@@ -75,11 +75,11 @@ public class QueryHandler {
         }
     }
 
-    public Map<String, Double> getTopKDocuments(Document[] documents, byte method, int K) {
+    public Map<String, Double> getTopKDocuments(Document[] documents, byte method, int K, boolean base64Decode) {
         if(K > documents.length) {
             K = documents.length;
         }
-        Map<String, Double> csResults = getTopKDocumentsWithCosineSim(documents, K);
+        Map<String, Double> csResults = getTopKDocumentsWithCosineSim(documents, K, base64Decode);
         if(method == Constants.SIMPLE_COSINE) {
             return csResults;
         }
@@ -95,7 +95,7 @@ public class QueryHandler {
         return null;
     }
 
-    private Map<String, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K) {
+    private Map<String, Double> getTopKDocumentsWithCosineSim(Document[] documents, int K, boolean base64Decode) {
         Map<String, Double> queryDocumentCosineScores = new LinkedHashMap<>();
         for (Document document : documents) {
             if(document != null) {
@@ -108,7 +108,12 @@ public class QueryHandler {
         queryDocumentCosineScores = new Utils<String>().sortMap(queryDocumentCosineScores);
         Map<String, Double> result = new LinkedHashMap<>();
         for(String key: queryDocumentCosineScores.keySet()) {
-            result.put(new String(Base64.decodeBase64(key)), queryDocumentCosineScores.get(key));
+            if(base64Decode) {
+                result.put(new String(Base64.decodeBase64(key)), queryDocumentCosineScores.get(key));
+            }
+            else {
+                result.put(key, queryDocumentCosineScores.get(key));
+            }
             if (--K == 0) {
                 break;
             }

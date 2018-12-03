@@ -4,7 +4,7 @@ import core.utils.Constants;
 
 import java.util.*;
 
-class QueryExpansion
+public class QueryExpansion
 {
 	public static void build_Indices(String path_to_collection,String[] v, Set<String> matchingDocNames, byte method) throws Exception
 	{
@@ -23,12 +23,9 @@ class QueryExpansion
 				Clusters.build_Scalar(collection_items,vocab);
 		}
 	}
-	public static String expander(Set<String> matchingDocNames, byte method) throws Exception
+	public static String expander(String query, Set<String> matchingDocNames, byte method) throws Exception
 	{
 		String path_to_collection = Constants.TOKENIZED_CORPUS_DIR_PATH; //path to seed list
-		String query;
-		Scanner sc=new Scanner(System.in);
-		query=sc.nextLine();
 		String[] query_tokens = Parser.return_tokens(query);
 		HashSet<String> v = new HashSet<String>();
 		build_Indices(path_to_collection,query_tokens, matchingDocNames, method);
@@ -42,7 +39,6 @@ class QueryExpansion
 			v.add(st);
 			Collections.addAll(v, Parser.return_best(filename, st));
 		}
-		sc.close();
 		String expanded_query = "";
 		for(String st:v)
 			expanded_query += st+" ";

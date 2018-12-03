@@ -1,5 +1,6 @@
 package api.controller;
 
+import QueryExpansion.QueryExpansion;
 import api.Utils.Constants;
 import api.model.StandardResponse;
 import api.routes.Router;
@@ -48,17 +49,51 @@ public class QueryController implements IController {
             System.out.println(e.getMessage());
         }
 
-        Map<String, Double> results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType,20);
-        JsonArray jsonElement = new JsonArray();
+        byte qeType = -1;
+        try {
+            qeType = Byte.parseByte(qeAlgorithmType);
+        }
+        catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
+
+        JsonObject jsonElement = new JsonObject();
+
+        Map<String, Double> results;
+
+        if(qeType != -1) {
+            int K = 20;
+            if(qeType == core.utils.Constants.QE_SCALAR || qeType == core.utils.Constants.QE_METRIC) {
+                K = 2;
+            }
+            results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType, K, false);
+            try {
+                String newQuery = QueryExpansion.expander(queryString, results.keySet(), qeType);
+                QueryHandler newQueryHandler = new QueryHandler(newQuery);
+                newQueryHandler.populateQueryObject();
+                newQueryHandler.populateQueryVector(Router.indexHeaders);
+                results = newQueryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType,20, true);
+                jsonElement.addProperty("exp_query", newQuery);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        else {
+             results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType,20, true);
+        }
 
         int counter = 1;
+        JsonArray jsonArray = new JsonArray();
         for (String key : results.keySet()) {
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("rank", counter++);
             jsonObject.addProperty("id", key);
             jsonObject.addProperty("score", results.get(key));
-            jsonElement.add(jsonObject);
+            jsonArray.add(jsonObject);
         }
+        jsonElement.add("results", jsonArray);
+        jsonElement.addProperty("query", queryString);
 //        System.out.println(toGson(StandardResponse.getSuccessResponse(jsonElement)));
         return toGson(StandardResponse.getSuccessResponse(jsonElement));
     }

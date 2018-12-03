@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.*;
 
-class Parser
+public class Parser
 {
 	public static String[] return_best(String file,String token) throws Exception
 	{
@@ -59,7 +59,7 @@ class Parser
 		HashMap<String,String[]> collection_tokens = new HashMap<String,String[]>();
 		for (File file:get_files(path, fileNames))
 		{
-			System.out.println(file.toString());
+//			System.out.println(file.toString());
 			try
 			{
 				Scanner sc=new Scanner(new File(file.toString()));

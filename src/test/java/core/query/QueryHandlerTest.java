@@ -56,7 +56,7 @@ public class QueryHandlerTest {
         documentHandler.loadDocuments();
 
         int k = 10;
-        Map<String, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), api.Utils.Constants.SIMPLE_COSINE, k);
+        Map<String, Double> cosineScores = queryHandler.getTopKDocuments(documentHandler.getDocuments(), api.Utils.Constants.SIMPLE_COSINE, k, true);
         assertNotNull(cosineScores);
         assertEquals(k, cosineScores.size());
         System.out.println(System.currentTimeMillis());

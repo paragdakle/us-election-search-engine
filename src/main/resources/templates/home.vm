@@ -27,32 +27,30 @@
             <div class="row">
               <div class="input-field">
                 <div class="input-select">
-                  <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="" value="">RELEVANCE MODELS</option>
-                    <option>VECTOR SPACE</option>
-                    <option>PAGE RANK</option>
-                    <option>HITS</option>
+                  <select data-trigger="" name="choices-single-defaul" id="relevance_select">
+                    <option placeholder="" value="1">RELEVANCE MODELS</option>
+                    <option value="1">VECTOR SPACE</option>
+                    <option value="2">PAGE RANK</option>
+                    <option value="3">HITS</option>
                   </select>
                 </div>
               </div>
               <div class="input-field">
                 <div class="input-select">
-                  <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="" value="">CLUSTERING</option>
-                    <option>GREEN</option>
-                    <option>SUBJECT B</option>
-                    <option>SUBJECT C</option>
+                  <select data-trigger="" name="choices-single-defaul" id="clustering_select">
+                    <option placeholder="" value="-1">CLUSTERING</option>
+                    <option value="1">K MEANS</option>
                   </select>
                 </div>
               </div>
               <div class="input-field">
                 <div class="input-select">
-                  <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="" value="">QUERY EXPANSION</option>
-                    <option>SIZE</option>
-                    <option>SUBJECT B</option>
-                    <option>SUBJECT C</option>
-                    <option>SUBJECT D</option>
+                  <select data-trigger="" name="choices-single-defaul" id="qe_select">
+                    <option placeholder="" value="-1">QUERY EXPANSION</option>
+                    <option value="1">ASSOCIATION</option>
+                    <option value="2">METRIC</option>
+                    <option value="3">SCALAR</option>
+                    <option value="4">ROCCHIO</option>
                   </select>
                 </div>
               </div>
@@ -73,9 +71,12 @@
     <script src="js/extention/choices.js"></script>
     <script>
       const customSelects = document.querySelectorAll("select");
-      const deleteBtn = document.getElementById('delete')
-      const submitBtn = document.getElementById('submit')
-      const searchText = document.getElementById('search')
+      const deleteBtn = document.getElementById('delete');
+      const submitBtn = document.getElementById('submit');
+      const searchText = document.getElementById('search');
+      const relevanceSelect = document.getElementById('relevance_select');
+      const clusteringSelect = document.getElementById('clustering_select');
+      const qeSelect = document.getElementById('qe_select');
       const choices = new Choices('select',
       {
         searchEnabled: false,
@@ -112,7 +113,7 @@
       submitBtn.addEventListener("click", function(e)
       {
         e.preventDefault()
-        window.location = "/compare?query=" + searchText.value + "&relevance=1&clustering=1&qe=1";
+        window.location = "/compare?query=" + searchText.value + "&relevance=" + relevance_select.value + "&clustering=" + clustering_select.value + "&qe=" + qe_select.value;
       });
 
     </script>

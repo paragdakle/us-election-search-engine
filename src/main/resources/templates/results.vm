@@ -2,77 +2,88 @@
 <html>
 <head>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+    <style>
+        body {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .panel-default {
+            border-color: #000 !important;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+        .panel-heading {
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<p align="right">
-<form name="jump" class="right">
-    <select name="menu">
-        <option value="#">Select an option</option>
-        <option value="#">Results after indexing</option>
-        <option value="#">Results after clustering</option>
-        <option value="#">Results after query expansion</option>
-
-    </select>
-    <input type="button" onClick="location=document.jump.menu.options[document.jump.menu.selectedIndex].value;" value="GO">
-</form>
-
-
-
-<form>
-<form name="jump" class="right">
-    <select id="relevance" name="menu">
-        <option value="#">Relevance</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-
-    </select>
-</form>
-
-
-<form name="jump" class="right">
-    <select id="clustering" name="menu">
-        <option value="#">Clustering</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-
-    </select>
-</form>
-<form name="jump" class="right">
-    <select id="QueryExpansion" name="menu">
-        <option value="#">Query Expansion</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-
-</form>
-<button id="submit">Submit</button>
-</form>
-</p>
-<div class="wrapper">
-    <div class="profile">
-        <table id= "userdata" border="2">
-            <thead>
-            <th>Rank</th>
-            <th>Id</th>
-            <th>Score</th>
-
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-
+<div class="container">
+    <blockquote class="blockquote">
+      <p class="mb-0">US Federal Elections Search Engine.</p>
+    </blockquote>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Query</span>
+      </div>
+      <input type="text" class="form-control" id="query_input" placeholder="search query" aria-label="query" aria-describedby="basic-addon1" value="$query" readonly>
     </div>
-</div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">Expanded Query</span>
+      </div>
+      <input type="text" class="form-control" id="exp_query_input" placeholder="expanded search query" aria-label="expanded_query" aria-describedby="basic-addon2" value="$expandedQuery" readonly>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Advanced Search</div>
+        <div class="panel-body">
+          <div class="row">
+              <div class="form-group col-md-4">
+                  <select class="form-control" id="relevanceSelect">
+                    <option value="1">Vector Space</option>
+                    <option value="2">Page Rank</option>
+                    <option value="3">HITS</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <select class="form-control" id="clusteringSelect">
+                    <option value="-1">Clustering</option>
+                    <option value="1">K Means</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <select class="form-control" id="qeSelect">
+                    <option value="-1">Query Expansion</option>
+                    <option value="1">Association</option>
+                    <option value="2">Metric</option>
+                    <option value="3">Scalar</option>
+                    <option value="4">Rocchio</option>
+                  </select>
+              </div>
+          </div>
+          <div class="row float-right" style="margin-right:5px;">
+            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+          </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Search Results</div>
+        <div class="panel-body">
+          <ul class="list-group list-group-flush" id="results_list">
+          </ul>
+        </div>
+    </div>
 
-<script>
+    <script>
         $(document).ready(function() {
+            $("#relevanceSelect").val($relevance);
+            $("#clusteringSelect").val($clustering);
+            $("#qeSelect").val($qe);
             $.ajax({
                 type: 'POST',
                 url: "/search",
@@ -83,27 +94,35 @@
         });
         function displayAll(data){
             if(data.data) {
-                $.each(data.data, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + f.rank + "</td>" +
-                            "<td>" + f.id + "</td>" + "<td>" + f.score + "</td>" + "</tr>"
-                    $(tblRow).appendTo("#userdata tbody");
-                });
+                if(data.data.query) {
+                    $("#query_input").val(data.data.query);
+                }
+                if(data.data.exp_query) {
+                    $("#exp_query_input").val(data.data.exp_query);
+                }
+                if(data.data.results) {
+                    $.each(data.data.results, function(i, f) {
+                        var liItem = '<li class="list-group-item">' + f.id + '</li>';
+                        $(liItem).appendTo("#results_list");
+                    });
+                }
             }
         }
         $("#submit").click(function (e) {
-            /*var relevance_id = $("#relevance").val();
-            var clustering_id = $("#clustering").val();
-            var QueryExpansion_id = $("#QueryExpansion").val();*/
+            $("#results_list").empty();
+            var relevanceSelectValue = $("#relevanceSelect").val();
+            var clusteringSelectValue = $("#clusteringSelect").val();
+            var qeSelectValue = $("#qeSelect").val();
             $.ajax({
                 type: 'POST',
                 url: "/search",
-                data: jQuery.param({ query: "election", relevance : 1, clustering: 1, qe: 1}),
+                data: jQuery.param({ query: "$query", relevance : relevanceSelectValue, clustering: clusteringSelectValue, qe: qeSelectValue}),
                 dataType: "json",
                 success: displayAll
             });
         });
 
     </script>
-
+</div>
 </body>
 </html>

@@ -6,7 +6,7 @@ import core.utils.Utils;
 
 import java.util.*;
 
-class Rocchio
+public class Rocchio
 {
 	public static String return_best(Query q, Document[] dp, Document[] dn)
 	{
