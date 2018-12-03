@@ -41,7 +41,7 @@ public class DocumentHandler {
                 for(File file1: file.listFiles()) {
                     if(counter < fileCount) {
                         if (file1.isFile()) {
-                            documents[counter] = toDocument(fileHandler.readFileContent(file1), counter, file1.getName());
+                            documents[counter] = toDocument(fileHandler.readFileContent(file1), counter, file1.getName().replace(".txt", ""));
                         }
                         counter++;
                     }

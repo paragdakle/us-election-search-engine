@@ -2,17 +2,10 @@ package QueryExpansion;
 
 import java.io.*;
 import java.util.*;
-class Pair
-{
-	String s1;
-	String s2;
-	Pair(String stem1,String stem2)
-	{
-		s1=stem1;
-		s2=stem2;
-	}
-};
-class Clusters
+
+import static java.lang.Double.isNaN;
+
+public class Clusters
 {
 	public static String[] build_vocab(HashMap<String,String[]> collection_items)
 	{
@@ -22,7 +15,7 @@ class Clusters
 		{
 			for(String s:collection_items.get(filename))
 				vocab.add(s);
-			System.out.println(file_id);
+//			System.out.println(file_id);
 			file_id++;
 		}
 		return vocab.toArray(new String[vocab.size()]);
@@ -59,7 +52,7 @@ class Clusters
 		int i=0;
 		for(;i<vocabArray.length;i++)
 		{
-			System.out.println(vocabArray.length-i);
+//			System.out.println(vocabArray.length-i);
 			for(String j:query_vocab)
 			{
 				Pair p = new Pair(vocabArray[i],j);
@@ -102,7 +95,9 @@ class Clusters
 		{
 			for(String filename:collection_items.keySet())
 				c=correlation(collection_items.get(filename),p.s1,p.s2)/(sizes.get(p.s1)+sizes.get(p.s2));
-			correlations.put(p,c);	
+			if(isNaN(c))
+				c=1.0;
+			correlations.put(p,c);
 		}
 		BufferedWriter br = new BufferedWriter(new FileWriter("metric.txt"));
 		br.write("word1\tword2\tcorrelation\n");
@@ -156,6 +151,8 @@ class Clusters
 				c2+=p2.get(i)*p2.get(i);
 			}
 			c=c/(c1*c2);
+			if(isNaN(c))
+				c=1.0;
 			correlations.put(p,c);
 		}
 		BufferedWriter br = new BufferedWriter(new FileWriter("scalar.txt"));

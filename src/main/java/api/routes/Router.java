@@ -57,6 +57,7 @@ public class Router {
         get("/results", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("query", req.queryParams("query"));
+            model.put("expandedQuery", req.queryParams("expquery"));
             model.put("relevance", req.queryParams("relevance"));
             model.put("clustering", req.queryParams("clustering"));
             model.put("qe", req.queryParams("qe"));
