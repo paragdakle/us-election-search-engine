@@ -66,7 +66,7 @@ public class QueryController implements IController {
             if(qeType == core.utils.Constants.QE_SCALAR || qeType == core.utils.Constants.QE_METRIC) {
                 K = 2;
             }
-            results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), modelType, K, false);
+            results = queryHandler.getTopKDocuments(documentHandler.getDocuments(), (byte)(modelType % 3), K, false);
             try {
                 String newQuery = QueryExpansion.expander(queryString, results.keySet(), qeType);
                 QueryHandler newQueryHandler = new QueryHandler(newQuery);
@@ -85,16 +85,26 @@ public class QueryController implements IController {
 
         int counter = 1;
         JsonArray jsonArray = new JsonArray();
-        for (String key : results.keySet()) {
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("rank", counter++);
-            jsonObject.addProperty("id", key);
-            jsonObject.addProperty("score", results.get(key));
-            jsonArray.add(jsonObject);
+        if(modelType == Constants.SIMPLE_COSINE_W_HITS) {
+            for (String key : results.keySet()) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("rank", counter++);
+                jsonObject.addProperty("url", key.replace("__hub__", "").replace("__auth__", ""));
+                jsonObject.addProperty("score", results.get(key));
+                jsonArray.add(jsonObject);
+            }
+        }
+        else {
+            for (String key : results.keySet()) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("rank", counter++);
+                jsonObject.addProperty("url", key);
+                jsonObject.addProperty("score", results.get(key));
+                jsonArray.add(jsonObject);
+            }
         }
         jsonElement.add("results", jsonArray);
         jsonElement.addProperty("query", queryString);
-//        System.out.println(toGson(StandardResponse.getSuccessResponse(jsonElement)));
         return toGson(StandardResponse.getSuccessResponse(jsonElement));
     }
 

@@ -102,7 +102,7 @@
                 }
                 if(data.data.results) {
                     $.each(data.data.results, function(i, f) {
-                        var liItem = '<li class="list-group-item">' + f.id + '</li>';
+                        var liItem = '<li class="list-group-item"><a href="' + f.url + '">' + f.url + '</a></li>';
                         $(liItem).appendTo("#results_list");
                     });
                 }

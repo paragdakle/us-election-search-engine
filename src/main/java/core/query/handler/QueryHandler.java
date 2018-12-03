@@ -153,14 +153,15 @@ public class QueryHandler {
         byte counter = 0;
         for(String key: hubScores.keySet()) {
             if(counter < 10)
-                hitsResults.put(key, hubScores.get(key));
+                hitsResults.put(key + "__hub__", hubScores.get(key));
             else
                 break;
             counter++;
         }
+        counter = 10;
         for(String key: authorityScores.keySet()) {
             if(counter > 0)
-                hitsResults.put(key, authorityScores.get(key));
+                hitsResults.put(key + "__auth__", authorityScores.get(key));
             else
                 break;
             counter--;
